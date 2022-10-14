@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
 
@@ -16,9 +17,13 @@ use App\Http\Controllers\MainUserController;
 |
 */ 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// HomeController
+Route::get('/', [HomeController::class, 'index']);
+
 
 Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
 	Route::get('/login', [AdminController::class, 'loginForm']);
