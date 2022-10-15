@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Category\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -70,3 +71,10 @@ Route::post('update/admin/profile', [MainAdminController::class, 'updateadminPro
 Route::get('admin/password', [MainAdminController::class, 'adminPasswordView'])->name('admin.changepassworde');
 // update.Admin.password
 Route::post('/admin/password/update', [MainAdminController::class, 'updateAdminPassword'])->name('update.Admin.password');
+
+
+// Admin ROutes 
+Route::group(['prefix'=>'admin'],function(){
+
+Route::get('category', [CategoryController::class, 'adminViewCategory'])->name('admin.viewCategory');
+});
