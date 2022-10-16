@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Category\BrandController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -74,7 +75,35 @@ Route::post('/admin/password/update', [MainAdminController::class, 'updateAdminP
 
 
 // Admin ROutes 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin/category'],function(){
 
-Route::get('category', [CategoryController::class, 'adminViewCategory'])->name('admin.viewCategory');
+Route::get('view', [CategoryController::class, 'adminViewCategory'])->name('admin.viewCategory');
+// store.category
+Route::post('store', [CategoryController::class, 'adminStoreCategory'])->name('admin.store.category');
+// deleteCategory
+Route::get('delete/{id}', [CategoryController::class, 'adminDeleteCategory'])->name('deleteCategory');
+// editCategory
+Route::get('Edit/{id}', [CategoryController::class, 'adminEditCategory'])->name('editCategory');
+// updateCategory
+Route::post('update/{id}', [CategoryController::class, 'adminUpdateCategory'])->name('updateCategory');
+
+
 });
+
+// ================================== Brands Routes  & BrandController ================================
+
+Route::group(['prefix'=>'admin/brands'],function(){
+
+    Route::get('view', [BrandController::class, 'adminViewbrand'])->name('admin.viewbrands');
+    // store.Brnad
+    Route::post('store', [BrandController::class, 'adminStoreBrand'])->name('store.Brand');
+    // // deleteBrand
+    Route::get('delete/{id}', [BrandController::class, 'adminDeleteBrand'])->name('deleteBrand');
+    // // editbrand
+    Route::get('Edit/{id}', [BrandController::class, 'adminEditBrand'])->name('editbrand');
+    // // updateCategory
+    Route::post('update/{id}', [BrandController::class, 'adminUpdateBrand'])->name('updateBrand');
+    
+    
+    });
+    
