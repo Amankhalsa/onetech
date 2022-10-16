@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Category\BrandController;
 use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Category\CouponController;
 use App\Http\Controllers\Admin\Category\SubcategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -26,6 +27,11 @@ use App\Http\Controllers\MainUserController;
 
 // HomeController
 Route::get('/', [HomeController::class, 'index']);
+
+Route::post('/newsletter', [HomeController::class, 'storenewsletter'])->name('store.newsletter');
+
+
+
 
 
 Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
@@ -107,7 +113,7 @@ Route::group(['prefix'=>'admin/Subcategory'],function(){
     });
 //=========================================  viewSubCategory =========================================
 
-// ================================== Brands Routes  & BrandController ================================
+// ================================== Brands Routes & BrandController ================================
 
 Route::group(['prefix'=>'admin/brands'],function(){
 
@@ -123,4 +129,30 @@ Route::group(['prefix'=>'admin/brands'],function(){
     
     
     });
-    
+
+    // ========================== admin coupon ===============================
+Route::group(['prefix'=>'admin/coupon'],function(){
+        Route::get('view', [CouponController::class, 'adminViewcoupon'])->name('admin.coupon');
+        // // store.coupon
+        Route::post('store', [CouponController::class, 'adminStorecoupon'])->name('store.coupon');
+        // // // deleteBrand
+        Route::get('delete/{id}', [CouponController::class, 'adminDeletecoupon'])->name('deletecoupon');
+        // // // editcoupon
+        Route::get('Edit/{id}', [CouponController::class, 'adminEditcoupon'])->name('editcoupon');
+        // // // update.coupon
+        Route::post('update/{id}', [CouponController::class, 'adminUpdatecoupon'])->name('update.coupon');
+
+
+});
+
+// admin.newsletter
+    Route::group(['prefix'=>'admin/newsletter'],function(){
+        Route::get('view', [CouponController::class, 'ViewNewsletter'])->name('admin.newsletter');
+
+    // deletenewsletter
+    Route::get('delete/{id}', [CouponController::class, 'adminDeletenewsletter'])->name('deletenewsletter');
+
+
+
+});
+
