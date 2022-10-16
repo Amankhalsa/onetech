@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Category\BrandController;
 use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Category\SubcategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -89,6 +90,22 @@ Route::post('update/{id}', [CategoryController::class, 'adminUpdateCategory'])->
 
 
 });
+//=========================================  viewSubCategory =========================================
+Route::group(['prefix'=>'admin/Subcategory'],function(){
+
+    Route::get('view', [SubcategoryController::class, 'ViewSubCategory'])->name('viewSubCategory');
+    // // store.subcategory
+    Route::post('store', [SubcategoryController::class, 'adminStoreSubCategory'])->name('store.subcategory');
+    // // deleteSubcategory
+    Route::get('delete/{id}', [SubcategoryController::class, 'deleteSubCategory'])->name('deleteSubcategory');
+    // // editCategory
+    Route::get('Edit/{id}', [SubcategoryController::class, 'editSubCategory'])->name('editSubCategory');
+    // // update.subcategory
+    Route::post('update/{id}', [SubcategoryController::class, 'updateSubCategory'])->name('update.subcategory');
+    
+    
+    });
+//=========================================  viewSubCategory =========================================
 
 // ================================== Brands Routes  & BrandController ================================
 

@@ -25,6 +25,8 @@
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('admin.viewCategory')}}" class="nav-link">Category </a></li>
+          <li class="nav-item"><a href="{{route('viewSubCategory')}}" class="nav-link">Sub Category </a></li>
+
           <li class="nav-item"><a href="{{route('admin.viewbrands')}}" class="nav-link">View Brand</a></li>
           <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Chart JS</a></li>
           <li class="nav-item"><a href="chart-rickshaw.html" class="nav-link">Rickshaw</a></li>
