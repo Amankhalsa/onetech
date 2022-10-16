@@ -42,7 +42,7 @@
                   @if(isset($category))
                   @foreach ($category as $val )
                       
-                  <option value="{{$val->id}}">{{$val->category_name}}</option>
+                  <option value="{{$val->id}}"  {{$val->id == $editSubcat->category_id ? 'selected' : '' }}>{{$val->category_name}}</option>
                   @endforeach
                   @endif
               
