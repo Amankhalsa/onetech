@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Category\BrandController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Category\CouponController;
 use App\Http\Controllers\Admin\Category\SubcategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -147,12 +148,28 @@ Route::group(['prefix'=>'admin/coupon'],function(){
 
 // admin.newsletter
     Route::group(['prefix'=>'admin/newsletter'],function(){
-        Route::get('view', [CouponController::class, 'ViewNewsletter'])->name('admin.newsletter');
+    // newsletter
+    Route::get('view', [CouponController::class, 'ViewNewsletter'])->name('admin.newsletter');
 
     // deletenewsletter
     Route::get('delete/{id}', [CouponController::class, 'adminDeletenewsletter'])->name('deletenewsletter');
 
+});
+
+// ========================= Product All ROutes =================================
+Route::group(['prefix'=>'admin/product'],function(){
+    // all_Product
+    Route::get('view', [ProductController::class, 'ViewProduct'])->name('all_Product');
+    //  create_Product
+    Route::get('Create', [ProductController::class, 'createProduct'])->name('create_Product');
+    // For Show Sub category with ajax
+
+    // store.product
+    Route::post('store', [ProductController::class, 'storeProduct'])->name('store.product');
 
 
 });
+Route::get('get/subcategory/{category_id}', [ProductController::class, 'GetSubcat']);
+// ========================= Product All ROutes =================================
+
 

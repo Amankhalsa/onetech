@@ -37,12 +37,23 @@
     <link href="{{asset('adminbackend/lib/Ionicons/css/ionicons.css')}}" rel="stylesheet">
     <link href="{{asset('adminbackend/lib/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
     <link href="{{asset('adminbackend/lib/rickshaw/rickshaw.min.css')}}" rel="stylesheet">
+
+     <!-- Tags Input CDN CSS -->
+<link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet"/>
+
+<!-- chart -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
     <link href="{{asset('adminbackend/lib/highlightjs/github.css')}}" rel="stylesheet">
     <link href="{{asset('adminbackend/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
     <link href="{{asset('adminbackend/lib/select2/css/select2.min.css')}}" rel="stylesheet">
+{{-- Editor  --}}
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('adminbackend/css/starlight.css')}}">
-  </head>
+        <link href="{{ asset('adminbackend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
+{{-- Editor  --}}
+  
+      </head>
 
   <body>
 
@@ -114,6 +125,26 @@
     <script src="{{asset('adminbackend/lib/Flot/jquery.flot.pie.js')}}"></script>
     <script src="{{asset('adminbackend/lib/Flot/jquery.flot.resize.js')}}"></script>
     <script src="{{asset('adminbackend/lib/flot-spline/jquery.flot.spline.js')}}"></script>
+
+{{-- Texteditor --}}
+    <script src="{{ asset('adminbackend/lib/medium-editor/medium-editor.js') }}"></script>
+    <script src="{{ asset('adminbackend/lib/summernote/summernote-bs4.min.js') }}"></script>
+   
+   <script>
+     $(function(){
+       'use strict';
+
+       // Inline editor
+       var editor = new MediumEditor('.editable');
+
+       // Summernote editor
+       $('#summernote').summernote({
+         height: 150,
+         tooltip: false
+       })
+     });
+   </script>
+{{-- Texteditor --}}
 
     <script src="{{asset('adminbackend/js/starlight.js')}}"></script>
     <script src="{{asset('adminbackend/js/ResizeSensor.js')}}"></script>
