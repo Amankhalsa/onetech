@@ -163,9 +163,21 @@ Route::group(['prefix'=>'admin/product'],function(){
     //  create_Product
     Route::get('Create', [ProductController::class, 'createProduct'])->name('create_Product');
     // For Show Sub category with ajax
-
     // store.product
     Route::post('store', [ProductController::class, 'storeProduct'])->name('store.product');
+    // inactive.product
+    Route::get('inactive/{id}', [ProductController::class, 'inactiveProduct'])->name('inactive.product');
+    // active product
+    Route::get('active/{id}', [ProductController::class, 'activeProduct'])->name('active product');
+    // delete.product
+    Route::get('delete/{id}', [ProductController::class, 'deleteProduct'])->name('delete.product');
+    // show.product
+    Route::get('show/{id}', [ProductController::class, 'showProduct'])->name('show.product');
+    // edit.product
+    Route::get('edit/{id}', [ProductController::class, 'editProduct'])->name('edit.product');
+    // update.product
+    Route::post('update/{id}', [ProductController::class, 'updateProduct'])->name('update.product');
+
 
 
 });

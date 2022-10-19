@@ -28,7 +28,7 @@ Product
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
-                <input class="form-control" type="text" name="product_code"  placeholder="Enter Product Code">
+                <input class="form-control" type="text" name="product_code"  placeholder="Enter Product Code" disabled>
               </div>
             </div><!-- col-4 -->
             <div class="col-lg-6">

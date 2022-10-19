@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Brand;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 Use Image ;
+
+use function PHPUnit\Framework\fileExists;
+
 class ProductController extends Controller
 {
     //
@@ -18,7 +22,7 @@ class ProductController extends Controller
     {
         $this->middleware('auth:admin');
     } 
-    // ViewProduct
+    //================================== ViewProduct ==================================
     public function ViewProduct(){
         $products = DB::table('products')
                     ->join('categories','products.category_id', 'categories.id')
@@ -27,22 +31,22 @@ class ProductController extends Controller
                     ->get();
                 //   return response()->json($products);  
 
-        return view('admin.product.showProduct',compact('products'));
+        return view('admin.product.viewProduct',compact('products'));
 
     }
-    // createProduct
+    // ================================== createProduct ==================================
     public function createProduct(){
             $category =  Category::all();
             $brand =  Brand::all();
         return view('admin.product.createProduct' ,compact('category','brand'));
 
     }
-    // GetSubcat
+    //==================================  GetSubcat ==================================
     public function GetSubcat($category_id){
                 $subcar = Subcategory::where('category_id' ,$category_id)->get();
                 return json_decode( $subcar );
     }
-    // storeProduct
+    //================================== storeProduct ==================================
     public function storeProduct(Request $request ){
         $data = array();
         $data['product_name'] = strtoupper(preg_replace("/[\s-]+/", " ",  $request->product_name));
@@ -106,4 +110,117 @@ class ProductController extends Controller
             return redirect()->route('all_Product')->with($notification); 
         }
     }
+
+    
+    
+        public function    inactiveProduct($id){
+            DB::table('products')->where('id', $id)->update([
+                'status' => '0'
+            ]);
+            $notification = array(
+                'message' => 'Product Inactive  successfully',
+                'alert-type' => 'info'
+                            );
+            return redirect()->back()->with($notification); 
+        }
+
+        public function    activeProduct($id){
+            DB::table('products')->where('id', $id)->update([
+                'status' => '1'
+            ]);
+            $notification = array(
+                'message' => 'Product Active  successfully',
+                'alert-type' => 'success'
+                            );
+            return redirect()->back()->with($notification); 
+        }
+        //================================== deleteProduct ==================================
+        public function deleteProduct($id){
+    $product  =  DB::table('products')->where('id', $id)->first();
+    $imageone = $product->image_one;
+
+    $imagetwo = $product->image_two;
+    $imagethree = $product->image_three;
+
+    if(fileExists($imageone)){
+        unlink($imageone);
+    }
+    if(fileExists($imagetwo)){
+        unlink($imagetwo);
+    }
+    if(fileExists($imagethree)){
+        unlink($imagethree);
+    }
+            DB::table('products')->where('id', $id)->delete();
+            $notification = array(
+                'message' => 'Product Deleted  successfully',
+                'alert-type' => 'error'
+                            );
+            return redirect()->back()->with($notification);
+        }
+        //================================== showProduct ==================================
+        public function showProduct($id){
+            $product = DB::table('products')
+            ->join('categories','products.category_id', 'categories.id')
+            ->join('brands','products.brand_id', 'brands.id')
+            ->join('subcategories','products.subcategory_id', 'subcategories.id')
+            ->select('products.*','categories.category_name','brands.brand_name','subcategories.subcategory_name')
+            ->where('products.id',$id)->first();
+            // return response()->json($showproducts);
+        return view('admin.product.showProduct' ,compact('product'));
+
+        }
+        //================================== editProduct ==================================
+        public function editProduct($id){
+            $category =  Category::all();
+            $subcategory =  Subcategory::all();
+
+            $brand =  Brand::all();
+                   $product =     Product::find($id);
+ 
+        return view('admin.product.editProduct' ,compact('category','brand','product','subcategory'));
+
+        }
+
+        // updateProduct
+        public function updateProduct(Request $request , $id){
+            $data = array();
+            $data['product_name'] = strtoupper(preg_replace("/[\s-]+/", " ",  $request->product_name));
+            $genName=   substr($request->product_name, 0, 3);
+            $data['product_code'] = strtoupper(preg_replace("/[\s-]+/", " ", $genName)).rand(0000,9999);;
+            $data['product_quantity'] = $request->product_quantity;
+            $data['discount_price'] = $request->discount_price;
+            $data['category_id'] = $request->category_id;
+            $data['subcategory_id'] = $request->subcategory_id;
+            $data['brand_id'] = $request->brand_id;
+            $data['product_size'] = $request->product_size;
+            $data['product_color'] = $request->product_color;
+            $data['selling_price'] = $request->selling_price;
+            $data['product_details'] = $request->product_details;
+            $data['video_link'] = $request->video_link;
+            $data['main_slider'] = $request->main_slider;
+            $data['hot_deal'] = $request->hot_deal;
+            $data['best_rated'] = $request->best_rated;
+            $data['trend'] = $request->trend;
+            $data['mid_slider'] = $request->mid_slider;
+            $data['hot_new'] = $request->hot_new;
+            $data['buyone_getone'] = $request->buyone_getone;
+
+            $data['created_at'] = Carbon::now();
+           $update = DB::table('products')->where('id',$id)->update($data);
+           if($update){
+               $notification = array(
+                   'message' => 'Product updated  successfully',
+                   'alert-type' => 'success'
+                );
+                return redirect()->route('all_Product')->with($notification); 
+            }else {
+                $notification = array(
+                    'message' => 'Product nothing to update',
+                    'alert-type' => 'error'
+                 );
+                 return redirect()->route('all_Product')->with($notification); 
+            }
+        }
 }
+

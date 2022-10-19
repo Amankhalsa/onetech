@@ -1,98 +1,253 @@
 @extends('admin.admin_master')
+
+
 @section('title')
-All Product
+Product
 @endsection
 @section('admin')
 
-    <!-- ########## START: MAIN PANEL ########## -->
- 
-  
-        <div class="sl-pagebody">
-          <div class="sl-page-title">
-            <h5>All Product Table</h5>
-
-          </div><!-- sl-page-title -->
-  
-          <div class="card pd-20 pd-sm-40">
-            <h6 class="card-body-title">Product list 
-                <a href="{{route('create_Product')}}" class="btn btn-sm btn-warning" style="float: right;"  >Add Product</a>
-            </h6>
+<div class="sl-pagebody">
 
 
-            <div class="table-wrapper">
-              <table id="datatable1" class="table display responsive nowrap">
-                <thead>
-                  <tr>
-                    <th class="wd-15p">Product Code</th>
-                    <th class="wd-15p">Product Name</th>
-                    <th class="wd-15p">Image</th>
-                    <th class="wd-15p">Category</th>
-                    <th class="wd-15p">Brand</th>
-                    <th class="wd-15p">Quantity</th>
-                    <th class="wd-15p">Status</th>
-                    <th class="wd-20p">Action</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-   
-               
-                  @foreach($products as $row)
-                  <tr>
-                    <td>{{ $row->product_code }}</td>
-                    <td>{{ $row->product_name }}</td>
-  
-               <td> <img src="{{ URL::to($row->image_one) }}" height="50px;" width="50px;"> </td>
-                   <td>{{ $row->category_name }}</td>
-                   <td>{{ $row->brand_name }}</td>
-                   <td>{{ $row->product_quantity }}</td>
-                   <td> 
-                    @if($row->status == 1)
-                  <span class="badge badge-success">Active</span>
-                    @else
-                  <span class="badge badge-danger">Inactive</span>
-                    @endif                  
-  
-                  </td>
-  
-  
-  
-                    <td>
-    <a href="" class="btn btn-sm btn-info" title="edit"><i class="fa fa-edit"></i></a>
-    <a href="" class="btn btn-sm btn-danger" title="delete" id="delete"><i class="fa fa-trash"></i></a>
-  
-    <a href="" class="btn btn-sm btn-warning" title="Show"><i class="fa fa-eye"></i></a>
-  
-  
-                @if($row->status == 1)
-     <a href="" class="btn btn-sm btn-danger" title="Inactive" ><i class="fa fa-thumbs-down"></i></a>
-                @else
-      <a href="" class="btn btn-sm btn-info" title="Active" ><i class="fa fa-thumbs-up"></i></a>
-                @endif
-                     
-  
-  
-                    </td>
-                     
-                  </tr>
-                  @endforeach
-
-
-                </tbody>
-              </table>
-            </div><!-- table-wrapper -->
-          </div><!-- card -->
-  
+    <div class="card pd-20 pd-sm-40">
+        <h6 class="card-body-title">Product Details Page  </h6>
+         
+        <div class="form-layout">
+          <div class="row mg-b-25">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label><br>
+               <strong>{{ $product->product_name }}</strong>
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label><br>
+               <strong>{{ $product->product_code }}</strong>
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Quantity: <span class="tx-danger">*</span></label><br>
+                <strong>{{ $product->product_quantity }}</strong>
+                
+              </div>
+            </div><!-- col-4 -->
+             
+            <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+                <label class="form-control-label">Category: <span class="tx-danger">*</span></label><br>
+                <strong>{{ $product->category_name }}</strong>
      
+              </div>
+            </div><!-- col-4 -->
+
+
+            <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+                <label class="form-control-label">Sub Category: <span class="tx-danger">*</span></label><br>
+                <strong>{{ $product->subcategory_name }}</strong>
+     
+              </div>
+            </div><!-- col-4 -->
+
+
+
+            <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+        <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
+             <br>
+                <strong>{{ $product->brand_name }}</strong>
+              </div>
+            </div><!-- col-4 -->
+
+
+<div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Product Size: <span class="tx-danger">*</span></label>
+                  <br>
+                <strong>{{ $product->product_size }}</strong>
+              </div>
+            </div><!-- col-4 -->
+
+<div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Product Color: <span class="tx-danger">*</span></label>
+                  <br>
+                <strong>{{ $product->product_color }}</strong>
+
+              </div>
+            </div><!-- col-4 -->
+
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Selling Price: <span class="tx-danger">*</span></label>
+                <br>
+                <strong>{{ $product->selling_price }}</strong>
+               
+              </div>
+            </div><!-- col-4 -->
+
+
+             <div class="col-lg-12">
+              <div class="form-group">
+                <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
+                <br>
+               <p>   {!! $product->product_details !!} </p>
   
+              </div>
+            </div><!-- col-4 -->
+
+              <div class="col-lg-12">
+              <div class="form-group">
+                <label class="form-control-label">Video Link: <span class="tx-danger">*</span></label>
+                <br>
+                <strong>{{ $product->video_link }}</strong>
+                 
+              </div>
+            </div><!-- col-4 -->
 
 
 
-  
+<div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Image One ( Main Thumbnali): <span class="tx-danger">*</span></label><br>
+               <label class="custom-file">
+         
+          <img src="{{ URL::to($product->image_one) }}" style="height: 80px; width: 80px;">
+          </label>
 
-  
-        </div><!-- sl-pagebody -->
+              </div>
+            </div><!-- col-4 -->
 
 
-      <!-- ########## END: MAIN PANEL ########## -->
+             <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Image Two: <span class="tx-danger">*</span></label><br>
+               <label class="custom-file">
+         <img src="{{ URL::to($product->image_two) }}" style="height: 80px; width: 80px;">
+          </label>
+
+              </div>
+            </div><!-- col-4 -->
+
+
+
+
+<div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Image Three: <span class="tx-danger">*</span></label><br>
+               <label class="custom-file">
+         <img src="{{ URL::to($product->image_three) }}" style="height: 80px; width: 80px;">
+
+          </label>
+
+              </div>
+            </div><!-- col-4 --> 
+
+          </div><!-- row -->
+
+<hr>
+<br><br>
+
+        <div class="row">
+
+      <div class="col-lg-4">
+      <label class="">
+       @if($product->main_slider == 1)
+       <span class="badge badge-success">Active</span>
+
+       @else
+     <span class="badge badge-danger">Inactive</span>
+       @endif 
+
+        <span>Main Slider</span>
+      </label>
+
+      </div> <!-- col-4 --> 
+
+       <div class="col-lg-4">
+      <label class="">
+       @if($product->hot_deal == 1)
+       <span class="badge badge-success">Active</span>
+
+       @else
+     <span class="badge badge-danger">Inactive</span>
+       @endif 
+        
+        <span>Hot Deal</span>
+      </label>
+
+      </div> <!-- col-4 --> 
+
+
+
+     <div class="col-lg-4">
+        <label class="">
+        @if($product->best_rated == 1)
+        <span class="badge badge-success">Active</span>
+
+        @else
+        <span class="badge badge-danger">Inactive</span>
+        @endif 
+
+        <span>Best Rated</span>
+        </label>
+     </div> <!-- col-4 --> 
+
+
+    <div class="col-lg-4">
+        <label class="">
+        @if($product->trend == 1)
+        <span class="badge badge-success">Active</span>
+
+        @else
+        <span class="badge badge-danger">Inactive</span>
+        @endif 
+
+        <span>Trend Product </span>
+        </label>
+
+    </div> <!-- col-4 --> 
+
+    <div class="col-lg-4">
+        <label class="">
+        @if($product->mid_slider == 1)
+        <span class="badge badge-success">Active</span>
+
+        @else
+        <span class="badge badge-danger">Inactive</span>
+        @endif 
+            
+            <span>Mid Slider</span>
+        </label>
+
+    </div> <!-- col-4 --> 
+
+    <div class="col-lg-4">
+        <label class="">
+        @if($product->hot_new == 1)
+        <span class="badge badge-success">Active</span>
+
+        @else
+        <span class="badge badge-danger">Inactive</span>
+        @endif 
+            
+            <span>Hot New </span>
+        </label>
+
+    </div> <!-- col-4 --> 
+
+
+        </div><!-- end row --> 
+
+
+
+          
+        </div><!-- form-layout -->
+      </div><!-- card -->
+
+
+</div>
+
 @endsection
