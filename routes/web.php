@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Category\BrandController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Category\CouponController;
 use App\Http\Controllers\Admin\Category\SubcategoryController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -183,7 +184,23 @@ Route::group(['prefix'=>'admin/product'],function(){
 
 
 });
+
 Route::get('get/subcategory/{category_id}', [ProductController::class, 'GetSubcat']);
 // ========================= Product All ROutes =================================
+//============================= Admin Blog post routes ============================
 
+Route::group(['prefix'=>'admin/blog'],function(){
+    // admin.blogcategory
+    Route::get('category-list', [PostController::class, 'blogCatList'])->name('blogcategory_list');
+    // store.blogcategory
+    Route::post('store-category', [PostController::class, 'storeblogCat'])->name('store.blogcategory');
+    // deleteblogcat
+    Route::get('delete-category/{id}', [PostController::class, 'deleteblogCat'])->name('delete_blog_cat');
+    // edit_blog_cat
+    Route::get('edit-category/{id}', [PostController::class, 'editBlogCat'])->name('edit_blog_cat');
+    // update.blogcategory
+    Route::post('update-category/{id}', [PostController::class, 'updateBlogCat'])->name('update.blogcategory');
+    // add_Blog_Post
+    Route::get('add-blog-post', [PostController::class, 'addBlogpost'])->name('add_Blog_Post');
 
+});

@@ -64,6 +64,22 @@
           <li class="nav-item"><a href="{{route('all_Product')}}" class="nav-link">All Product</a></li>
         </ul>
 
+        {{-- blog  --}}
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+            <span class="menu-item-label">Blog</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('blogcategory_list')}}" class="nav-link">Blog Category</a></li>
+          <li class="nav-item"><a href="{{route('add_Blog_Post')}}" class="nav-link">Add Blog</a></li>
+          <li class="nav-item"><a href="{{route('all_Product')}}" class="nav-link">Blog Post</a></li>
+
+        </ul>
+        {{-- blog end  --}}
+
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
