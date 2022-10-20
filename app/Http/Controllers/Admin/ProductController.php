@@ -222,5 +222,82 @@ class ProductController extends Controller
                  return redirect()->route('all_Product')->with($notification); 
             }
         }
+
+        // updateProductImage
+        public function updateProductImage(Request $request ,$id){
+            $old_one = $request->old_one;
+            $old_two = $request->old_two;
+            $old_three = $request->old_three;
+    
+
+            $data =array();
+            $image_one = $request->file('image_one');
+            $image_two = $request->file('image_two');
+            $image_three = $request->file('image_three');
+            if($image_one ){
+                if(fileExists($old_one)){
+                    unlink( $old_one);
+                }
+                $image_name_one = hexdec(uniqid());
+                $ext1=  strtolower( $image_one->getClientOriginalExtension());
+                $imageFullname1 =    $image_name_one.'.'.$ext1;
+                $upload_path ='media/products/';
+                Image::make($image_one)->resize(300,300)->save( $upload_path. $imageFullname1 );
+                $data['image_one']  =  $upload_path. $imageFullname1;
+                
+                $updateone =   DB::table('products')->where('id',$id)->update($data);
+         IF( $updateone ){
+            $notification = array(
+                'message' => 'Product Image one Updated',
+                'alert-type' => 'error'
+             );
+             return redirect()->route('all_Product')->with($notification);
+         }
+
+        }
+        if( $image_two){
+            if(fileExists($old_two)){
+                unlink( $old_two);
+            }
+            $image_name_two = hexdec(uniqid());
+            $ext2=  strtolower( $image_two->getClientOriginalExtension());
+            $imageFullname2 =    $image_name_two.'.'.$ext2;
+            $upload_path ='media/products/';
+            Image::make($image_two)->resize(300,300)->save( $upload_path. $imageFullname2 );
+            $data['image_two']  =  $upload_path. $imageFullname2;
+     
+            $updatetwo =   DB::table('products')->where('id',$id)->update($data);
+                    if($updatetwo)
+                         {
+                                $notification = array(
+                                'message' => 'Product Image Two Updated',
+                                'alert-type' => 'error'
+                         );
+                    return redirect()->route('all_Product')->with($notification);
+                    }
+
+        }
+        if($image_three){
+            if(fileExists($old_three)){
+                unlink( $old_three);
+            }
+            $image_name_three =hexdec(uniqid());
+            $ext3=  strtolower( $image_three->getClientOriginalExtension());
+            $imageFullname3 =    $image_name_three.'.'.$ext3;
+            $upload_path ='media/products/';
+            Image::make($image_three)->resize(300,300)->save( $upload_path. $imageFullname3 );
+            $data['image_three']  =  $upload_path. $imageFullname3;
+            $updatethree =   DB::table('products')->where('id',$id)->update($data);
+                if($updatethree){
+                        $notification = array(
+                        'message' => 'Product Image Three Updated',
+                        'alert-type' => 'error'
+                );
+                 return redirect()->route('all_Product')->with($notification);
+                }
+
+            }
+
+        }
 }
 

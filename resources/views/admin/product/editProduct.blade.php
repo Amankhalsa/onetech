@@ -202,51 +202,57 @@ Update Product
         <h6 class="card-body-title">Update Product  Page  </h6>
          
         <div class="form-layout">
-            <form action="" method="POST" >
+            <form action="{{route('update.product_image',$product->id )}}" method="POST" enctype="multipart/form-data" >
+              @csrf
             <div class="row mg-b-25">
-                
-            <div class="col-lg-4">
+
+              <!-- col-4 -->   
+              <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Image One : <span class="tx-danger">*</span></label><br>
-                 <label class="custom-file"><br>
-          <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);"  required="">
-          <span class="custom-file-control"></span><br>
-          <img src="{{asset($product->image_one)}}" id="one" width="100px">
-            </label>
-  
+                    <label class="custom-file"><br>
+                       <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this);" >
+                           <span class="custom-file-control"></span><br>
+                              <img src="{{asset($product->image_one)}}" id="one" width="100px">
+                              <input type="hidden" value="{{$product->image_one}}" name="old_one">
+                    </label>
                 </div>
-              </div><!-- col-4 -->
+              </div>
+              <!-- col-4 -->
 
-
+              <!-- col-4 --> 
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Image Two: <span class="tx-danger">*</span></label><br>
-                 <label class="custom-file"><br>
-          <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this);"  required="">
-          <span class="custom-file-control"></span><br>
-          <img src="{{asset($product->image_two)}}" id="two" width="100px">
-            </label>
-  
+                    <label class="custom-file"><br>
+                          <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this);"  >
+                             <span class="custom-file-control"></span><br>
+                                 <img src="{{asset($product->image_two)}}" id="two" width="100px">
+                              <input type="hidden" value="{{$product->image_two}}" name="old_two">
+
+                    </label>
                 </div>
-              </div><!-- col-4 -->
+              </div>
+              <!-- col-4 -->
 
-
-
-
+              <!-- col-4 --> 
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Image Three: <span class="tx-danger">*</span></label><br>
-                 <label class="custom-file"><br>
-          <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL3(this);"  require="">
-          <span class="custom-file-control"></span><br>
-          <img src="{{asset($product->image_three)}}" id="three" width="100px">
-            </label>
-  
-                </div> 
-              </div><!-- col-4 --> 
+                    <label class="custom-file"><br>
+                         <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL3(this);"  >
+                          <span class="custom-file-control"></span><br>
+                             <img src="{{asset($product->image_three)}}" id="three" width="100px">
+                             <input type="hidden" value="{{$product->image_three}}" name="old_three">
+
+                    </label>
+                 </div> 
+              </div>
+              <!-- col-4 --> 
+              
             </div>
             <br>
- <button type="submit" class="btn btn-sm btn-warning"> Update Photo</button>
+              <button type="submit" class="btn btn-sm btn-warning"> Update Photo</button>
             </form>
         </div>
       </div>
@@ -276,7 +282,7 @@ Update Product
           });
 
         }else{
-          alert('danger');
+          alert('Please select Option');
         }
 
           });

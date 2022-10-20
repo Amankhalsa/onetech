@@ -99,7 +99,6 @@ class BrandController extends Controller
                 $update->brand_logo = $image_url;
                 $update->save();
                 if(fileExists($getImage)){
-
                     unlink( $getImage);
                 }
                 $notification = array(

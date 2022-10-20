@@ -178,6 +178,8 @@ Route::group(['prefix'=>'admin/product'],function(){
     // update.product
     Route::post('update/{id}', [ProductController::class, 'updateProduct'])->name('update.product');
 
+    // update.product_image
+    Route::post('update-image/{id}', [ProductController::class, 'updateProductImage'])->name('update.product_image');
 
 
 });
