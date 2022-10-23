@@ -11,7 +11,7 @@
         <h6 class="card-body-title"> Create Blog post </h6>
          
         <div class="form-layout">
-            <form action="" method="POST"  >
+            <form action="{{route('store.blog_post')}}" method="POST"   enctype="multipart/form-data">
                 @csrf
 
          <div class="row mg-b-25">
@@ -36,7 +36,7 @@
                 <select class="form-control select2" data-placeholder="Choose country" name="category_id">
                     <option label="Choose Category"></option>
                     @foreach($category as $row)
-                    <option >{{ $row->category_name_en }}</option>
+                    <option value="{{$row->id}}" >{{ $row->category_name_en }}</option>
                     @endforeach
                   </select>
      
@@ -47,7 +47,18 @@
                 <div class="form-group">
                   <label class="form-control-label">Post  Details eng: <span class="tx-danger">*</span></label>
   
-            <textarea class="form-control" id="summernote"  name="product_details"> 
+            <textarea class="form-control" id="summernote"  name="details_en"> 
+  
+             </textarea>
+                   
+                </div>
+              </div><!-- col-4 -->
+
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label class="form-control-label">Post  Details Hin: <span class="tx-danger">*</span></label>
+  
+            <textarea class="form-control" id="summernote2"  name="details_in"> 
   
              </textarea>
                    
@@ -58,9 +69,13 @@
                 <div class="form-group">
                   <label class="form-control-label">Image : <span class="tx-danger">*</span></label>
                  <label class="custom-file">
-          <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this);"  required="">
+
+ 
+
+          <input name="post_image" class="custom-file-input"   type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+         
           <span class="custom-file-control"></span><br>
-          <img src="{{asset('upload/no_image.jpg')}}" id="two" width="100px">
+          <img id="output" src="{{asset('upload/no_image.jpg')}}" width="100" height="100">
             </label>
   
                 </div>

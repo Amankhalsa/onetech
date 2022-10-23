@@ -1,3 +1,5 @@
 vandervort.clemmie@example.org
 password
 
+admin@gmail.com
+12345678

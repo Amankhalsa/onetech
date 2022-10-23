@@ -202,5 +202,16 @@ Route::group(['prefix'=>'admin/blog'],function(){
     Route::post('update-category/{id}', [PostController::class, 'updateBlogCat'])->name('update.blogcategory');
     // add_Blog_Post
     Route::get('add-blog-post', [PostController::class, 'addBlogpost'])->name('add_Blog_Post');
+    // store.blog_post
+    Route::post('store-blog-post', [PostController::class, 'storeBlogpost'])->name('store.blog_post');
+    // view blog 
+    Route::get('view-blog-post', [PostController::class, 'viewBlogpost'])->name('view.blog_post');
+    // edit.blogPost 
+    Route::get('edit-blog-post/{id}', [PostController::class, 'editBlogpost'])->name('edit.blogPost');
+    // delete.blogpost
+    Route::get('delete-blog-post/{id}', [PostController::class, 'deleteBlogpost'])->name('delete.blogpost');
+    // update.blog_post
+    Route::post('update-blog-post/{id}', [PostController::class, 'updateBlogpost'])->name('update.blog_post');
+
 
 });

@@ -75,7 +75,7 @@
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('blogcategory_list')}}" class="nav-link">Blog Category</a></li>
           <li class="nav-item"><a href="{{route('add_Blog_Post')}}" class="nav-link">Add Blog</a></li>
-          <li class="nav-item"><a href="{{route('all_Product')}}" class="nav-link">Blog Post</a></li>
+          <li class="nav-item"><a href="{{route('view.blog_post')}}" class="nav-link">Blog Post</a></li>
 
         </ul>
         {{-- blog end  --}}
