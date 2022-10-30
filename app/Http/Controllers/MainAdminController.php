@@ -28,6 +28,7 @@ class MainAdminController extends Controller
         $data->email =  $request->email;
 
             if($request->file('profile_photo_path')){
+                // unlink 
                 // if(file_exists(public_path('upload/admin_images/'.$data->profile_photo_path))){
                 //     unlink(public_path('upload/admin_images/'.$data->profile_photo_path));
                 // }
