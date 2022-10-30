@@ -15,7 +15,10 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/slick-1.8.0/slick.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/responsive.css')}}">
-
+@if(Request::is('login') ) 
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_responsive.css')}}">
+@endif
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 </head>
@@ -37,6 +40,9 @@
 <script src="{{asset('frontend/plugins/slick-1.8.0/slick.js')}}"></script>
 <script src="{{asset('frontend/plugins/easing/easing.js')}}"></script>
 <script src="{{asset('frontend/js/custom.js')}}"></script>
+@if(Request::is('login') ) 
+<script src="{{asset('frontend/js/contact_custom.js')}}"></script>
+@endif
      <!-- Toaster Javascript cdn -->
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
      

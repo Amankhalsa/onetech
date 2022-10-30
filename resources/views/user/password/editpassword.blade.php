@@ -1,34 +1,78 @@
-@extends('user.user_master')
-@section('user')
-<div class="middle_content_wrapper">
-    <!-- counter_area -->
-    <section class="counter_area col-md-6">
-        <h4>Change Password</h4>
-            <form method="post" action="{{route('password.update')}}" >
-                @csrf
-                <div class="form-group">
-                  <label for="name">Current Password </label>
-                  <input id="current_password" type="password"  class="form-control" name="oldpassword" aria-describedby="name"  placeholder="Old Password">
-                  @error('oldpassword') <span class="text-danger"> {{$message}}</span> @enderror
-                </div>
-                <div class="form-group">
-                  <label for="password">New Password </label>
-                  <input id="password" type="password" class="form-control" id="password" name="password" placeholder="New Password">
-                  @error('password') <span class="text-danger"> {{$message}}</span> @enderror
 
-                </div>
-            
-                <div class="form-group">
-                    <label for="password">Confirm Password  </label>
-                    <input type="password" class="form-control" id="password_confirmation"   name="password_confirmation" placeholder="Confirm Password">
-                  @error('password') <span class="text-danger"> {{$message}}</span> @enderror
+	@extends('frontend.front_master')
+	@section('content')
+	<!-- Header -->
+    @include('frontend.body.header')
+    
+	<!-- Banner -->
+    <div class="contact_form">
+        <div class="container"> 
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header">{{ __('Change Your Password') }}</div>
+  
+                  <div class="card-body">
+                      <form method="POST" action="{{ route('password.update') }}" aria-label="{{ __('Reset Password') }}">
+                          @csrf
+  
+  
+                          <div class="form-group row">
+                              <label for="oldpass" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
+  
+                              <div class="col-md-6">
+                                  <input id="oldpass" type="password" class="form-control" name="oldpassword"  required autofocus>
+  
+                                  @error('oldpassword') <span class="text-danger"> {{$message}}</span> @enderror
+                              </div>
+                          </div>
+  
+                          <div class="form-group row">
+                              <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+  
+                              <div class="col-md-6">
+                                  <input id="password" type="password" class="form-control" name="password" required>
+  
+                                  @error('password') <span class="text-danger"> {{$message}}</span> @enderror
 
+                              </div>
+                          </div>
+  
+                          <div class="form-group row">
+                              <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+  
+                              <div class="col-md-6">
+                                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                  @error('password_confirmation') <span class="text-danger"> {{$message}}</span> @enderror
+
+                              </div>
+                          </div>
+  
+                          <div class="form-group row mb-0">
+                              <div class="col-md-6 offset-md-4">
+                                  <button type="submit" class="btn btn-primary">
+                                      {{ __('Reset Password') }}
+                                  </button>
+                              </div>
+                          </div>
+                      </form>
                   </div>
+              </div>
+          </div>
+      
+            {{-- profile right pane  --}}
+                @include('user.body.profile_rightpane')
+            {{-- profile right pane  --}}
 
-               
-                <button type="submit" class="btn btn-primary">Update Password</button>
-              </form>
-    </section>
-</div>
+          </div>
+      
+        </div>
+        
+      
+      </div>
 
+    @include('frontend.body.footer')
+
+    <!-- Copyright -->
+    @include('frontend.body.copyright')
 @endsection

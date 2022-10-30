@@ -12,7 +12,11 @@ class MainUserController extends Controller
     //userLogout
     public function userLogout(){
         Auth::logout();
-        return redirect()->route('login');
+        $notification = array(
+            'message' => 'User logout successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('login')->with($notification);
         
     }
     public function userProfile(){
@@ -50,7 +54,7 @@ class MainUserController extends Controller
                 'message' => 'User profile Updated successfully',
                 'alert-type' => 'success'
             );
-            return redirect()->route('user.profile')->with($notification);
+            return redirect('/dashboard')->with($notification);
     }
     // userPasswordView
     public function userPasswordView(){

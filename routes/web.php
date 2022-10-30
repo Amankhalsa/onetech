@@ -28,6 +28,13 @@ use App\Http\Controllers\MainUserController;
 // });
 
 // HomeController
+
+
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice'); 
+
 Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/newsletter', [HomeController::class, 'storenewsletter'])->name('store.newsletter');
@@ -49,7 +56,11 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', f
 
 
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
-    return view('user.index');
+    $notification = array(
+        'message' => 'User login successfully',
+        'alert-type' => 'success'
+    );
+    return view('user.index')->with($notification);
     
 })->name('dashboard');
 // admin.logout
@@ -65,7 +76,7 @@ Route::get('/edit/user/profile', [MainUserController::class, 'editUserProfile'])
 // profile.store
 Route::post('/update/user/profile', [MainUserController::class, 'updateProfile'])->name('profile.store');
 // user.password.view
-Route::get('/user/password/view', [MainUserController::class, 'userPasswordView'])->name('user.password.view');
+Route::get('/user/change-password/', [MainUserController::class, 'userPasswordView'])->name('user.changepassword');
 // password.update
 Route::post('/user/password/update', [MainUserController::class, 'userPasswordupdate'])->name('password.update');
 

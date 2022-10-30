@@ -121,12 +121,11 @@
 		
 		<!-- Main Navigation -->
 		@php
-
-		$category = DB::table('categories')->get();
-		   @endphp
-		
-		<nav class="main_nav">
-			<div class="container">
+			$category = DB::table('categories')->get();
+		@endphp
+		{{-- @if(Request::is('login' ,'dashboard') ) d-none  @endif " --}}
+		<nav class="main_nav   ">
+			<div class="container ">
 				<div class="row">
 					<div class="col">
 						
@@ -140,15 +139,15 @@
 									<div class="cat_menu_text">categories</div>
 								</div>
 
-		<ul class="cat_menu">
-	@foreach($category as $cat)
-			<li class="hassubs">
-				<a href="#">{{$cat->category_name}}<i class="fas fa-chevron-right"></i></a>
+				<ul class="cat_menu">
+					@foreach($category as $cat)
+						<li class="hassubs">
+							<a href="#">{{$cat->category_name}}<i class="fas fa-chevron-right"></i></a>
 				<ul>
 					
-    @php
-	$subcategory = DB::table('subcategories')->where('category_id',$cat->id)->get();
-	  @endphp
+					@php
+					$subcategory = DB::table('subcategories')->where('category_id',$cat->id)->get();
+					@endphp
 				    @foreach($subcategory as $row)
                     <li class="hassubs">
                         <a href="#">{{ $row->subcategory_name }}<i class="fas fa-chevron-right"></i></a>
@@ -159,9 +158,9 @@
 				
 				</ul>
 			</li>
-	@endforeach
+			@endforeach
 
-		</ul>
+				</ul>
 							</div>
 
 							<!-- Main Nav Menu -->
