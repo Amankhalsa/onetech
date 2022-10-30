@@ -26,11 +26,11 @@ class MainAdminController extends Controller
         $data = Admin::find(1);
         $data->name =  $request->name;
         $data->email =  $request->email;
-        if(file_exists(public_path('upload/admin_images/'.$data->profile_photo_path))){
-            unlink(public_path('upload/admin_images/'.$data->profile_photo_path));
-        }else {
+
             if($request->file('profile_photo_path')){
-                
+                // if(file_exists(public_path('upload/admin_images/'.$data->profile_photo_path))){
+                //     unlink(public_path('upload/admin_images/'.$data->profile_photo_path));
+                // }
                 $file = $request->file('profile_photo_path');
                 $filename = date('dmyHi'). $file->getClientOriginalName();
                 $file->move(public_path('upload/admin_images'), $filename);
@@ -43,8 +43,6 @@ class MainAdminController extends Controller
                 'alert-type' => 'success'
             );
             return redirect()->route('admin.profile')->with($notification);
-        }
-          
     }
     // adminPasswordView
     public function adminPasswordView(){
