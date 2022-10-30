@@ -7,7 +7,7 @@
             <!-- Trends Content -->
             <div class="col-lg-3">
                 <div class="trends_container">
-                    <h2 class="trends_title">Trends 2018</h2>
+                    <h2 class="trends_title">Buy One Get One</h2>
                     <div class="trends_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</p></div>
                     <div class="trends_slider_nav">
                         <div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>

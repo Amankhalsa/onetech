@@ -130,6 +130,9 @@
 
 		<!-- Best Sellers -->
 
+		@include('frontend.body.new_arrivals2')
+
+
 		@include('frontend.body.best_sellers')
 
 		<!-- Adverts -->
