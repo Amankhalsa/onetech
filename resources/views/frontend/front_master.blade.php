@@ -21,6 +21,8 @@
 @endif
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+<link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
 <body>
@@ -43,6 +45,8 @@
 @if(Request::is('login') ) 
 <script src="{{asset('frontend/js/contact_custom.js')}}"></script>
 @endif
+{{-- smart alert  --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
      <!-- Toaster Javascript cdn -->
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
      
@@ -69,6 +73,57 @@
          }
          @endif 
         </script>
+{{-- add to --}}
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+      $('.addwishlist').on('click', function(){
+         var id = $(this).data('id');
+         if (id) {
+             $.ajax({
+                 url: " {{ url('add-to-wishlist/') }}/"+id,
+                 type:"GET",
+                 datType:"json",
+                 success:function(data){
+              const Toast = Swal.mixin({
+                   toast: true,
+                   position: 'top-end',
+                   showConfirmButton: false,
+                   timer: 3000,
+                   timerProgressBar: true,
+                   onOpen: (toast) => {
+                     toast.addEventListener('mouseenter', Swal.stopTimer)
+                     toast.addEventListener('mouseleave', Swal.resumeTimer)
+                   }
+                 })
+ 
+              if ($.isEmptyObject(data.error)) {
+ 
+                 Toast.fire({
+                   icon: 'success',
+                   title: data.success
+                 })
+              }else{
+                  Toast.fire({
+                   icon: 'error',
+                   title: data.error
+                 })
+              }
+  
+ 
+                 },
+             });
+ 
+         }else{
+             alert('danger');
+         }
+      });
+ 
+    });
+ 
+ 
+ </script>
 </body>
 
 </html>

@@ -51,6 +51,10 @@
 															<li><a href="">Wishlist</a></li>
 															<li><a href="">Checkout</a></li>
 															<li><a href="#">Others</a></li>
+															<li><a href="{{route('user.logout')}}">logout</a></li>
+
+
+															
 														</ul>
 													</li>
 													
@@ -73,7 +77,7 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							<div class="logo"><a href="#">                           
+							<div class="logo"><a href="{{url('/')}}">                           
 								 <img src="https://ecom.amankhalsa.in/public/frontend/images/logo.png" alt="">    
 
 							</a></div>

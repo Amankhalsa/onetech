@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,10 @@ Route::post('/update/user/profile', [MainUserController::class, 'updateProfile']
 Route::get('/user/change-password/', [MainUserController::class, 'userPasswordView'])->name('user.changepassword');
 // password.update
 Route::post('/user/password/update', [MainUserController::class, 'userPasswordupdate'])->name('password.update');
+
+// WishlistController
+Route::get('/add-to-wishlist/{id}', [WishlistController::class, 'add_To_Wishlist'])->name('addToWishlist');
+
 
 
 // admin.profile

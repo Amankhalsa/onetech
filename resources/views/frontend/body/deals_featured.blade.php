@@ -148,7 +148,12 @@
                                                 <button class="product_cart_button">Add to Cart</button>
                                             </div>
                                         </div>
+
+                                        
+             <button class="addwishlist" data-id="{{ $items->id }}" >
+
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
+             </button>
                                         <ul class="product_marks">
                                             @if($items->discount_price == Null)
                                             <li class="product_mark product_discount" style="background: #0e8ce4;">New</li>
@@ -206,7 +211,11 @@
                                                 <button class="product_cart_button">Add to Cart</button>
                                             </div>
                                         </div>
+
+                                                                         
+      
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
+         
                                         <ul class="product_marks">
                                             @if($items->discount_price == Null)
                                             <li class="product_mark product_discount" style="background: #0e8ce4;">New</li>

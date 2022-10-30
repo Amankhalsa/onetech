@@ -164,4 +164,5 @@
 		<!-- Copyright -->
 		@include('frontend.body.copyright')
 	
+
 @endsection
