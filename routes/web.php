@@ -81,7 +81,7 @@ Route::get('/user/change-password/', [MainUserController::class, 'userPasswordVi
 // password.update
 Route::post('/user/password/update', [MainUserController::class, 'userPasswordupdate'])->name('password.update');
 
-// WishlistController
+//  add to wishlist 
 Route::get('/add-to-wishlist/{id}', [WishlistController::class, 'add_To_Wishlist'])->name('addToWishlist');
 
 
