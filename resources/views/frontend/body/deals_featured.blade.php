@@ -7,8 +7,8 @@
 
     $hot = DB::table('products')
 				->join('brands', 'products.brand_id','brands.id')
-				->select('products.*' , 'brands.brand_name')
-				->where('hot_deal',1)->orderBy('id','DESC')->limit(3)->get();
+				->select('products.*' , 'brands.brand_name')->where('status',1)
+				->where('buyone_getone',1)->orderBy('id','DESC')->limit(3)->get();
 
 
 
