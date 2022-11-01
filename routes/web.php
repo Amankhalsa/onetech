@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
@@ -84,7 +85,10 @@ Route::post('/user/password/update', [MainUserController::class, 'userPasswordup
 //  add to wishlist 
 Route::get('/add-to-wishlist/{id}', [WishlistController::class, 'add_To_Wishlist'])->name('addToWishlist');
 
-
+// CartController
+Route::get('/add-to-cart/{id}', [CartController::class, 'add_To_cart']);
+// check
+Route::get('/check', [CartController::class, 'check']);
 
 // admin.profile
 

@@ -7,8 +7,8 @@
 
     $hot = DB::table('products')
 				->join('brands', 'products.brand_id','brands.id')
-				->select('products.*' , 'brands.brand_name')->where('status',1)
-				->where('buyone_getone',1)->orderBy('id','DESC')->limit(3)->get();
+				->select('products.*' , 'brands.brand_name')
+				->where('hot_deal',1)->orderBy('id','DESC')->limit(3)->get();
 
 
 
@@ -145,7 +145,7 @@
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
-                                                <button class="product_cart_button">Add to Cart</button>
+                                                <button class="product_cart_button addtocart" data-iD="{{$items->id}}">Add to Cart</button>
                                             </div>
                                         </div>
 

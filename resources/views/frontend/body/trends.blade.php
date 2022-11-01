@@ -5,6 +5,8 @@
 				->select('products.*' , 'brands.brand_name')->where('status',1)
 				->where('buyone_getone',1)->orderBy('id','DESC')->limit(3)->get();
 @endphp
+
+
 <div class="trends">
     <div class="trends_background" style="background-image:url(images/trends_background.jpg)"></div>
     <div class="trends_overlay"></div>
@@ -75,3 +77,4 @@
         </div>
     </div>
 </div>
+{{-- Womens Fashion --}}
