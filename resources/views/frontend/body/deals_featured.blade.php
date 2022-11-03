@@ -138,7 +138,7 @@
 
                                                 @endif
                                             </div>
-                                            <div class="product_name"><div><a href="product.html"> {{Str::limit($items->product_name,10,$end='....')}}</a></div></div>
+                                            <div class="product_name"><div><a href="{{url('product/details/'.$items->id. '/'.$items->product_name )}}"> {{Str::limit($items->product_name,10,$end='....')}}</a></div></div>
                                             <div class="product_extras">
                                                 <div class="product_color">
                                                     <input type="radio" checked name="product_color" style="background:#b19c83">
@@ -150,10 +150,9 @@
                                         </div>
 
                                         
-             <button class="addwishlist" data-id="{{ $items->id }}" >
-
+                                            <button class="addwishlist" data-id="{{ $items->id }}" >
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
-             </button>
+                                           </button>
                                         <ul class="product_marks">
                                             @if($items->discount_price == Null)
                                             <li class="product_mark product_discount" style="background: #0e8ce4;">New</li>

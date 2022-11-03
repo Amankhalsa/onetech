@@ -12,6 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
+use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\WishlistController;
 
 /*
@@ -89,6 +90,8 @@ Route::get('/add-to-wishlist/{id}', [WishlistController::class, 'add_To_Wishlist
 Route::get('/add-to-cart/{id}', [CartController::class, 'add_To_cart']);
 // check
 Route::get('/check', [CartController::class, 'check']);
+// 
+Route::get('/product/details/{id}/{product_name}', [ProductDetailController::class, 'viewProductdetail']);
 
 // admin.profile
 
