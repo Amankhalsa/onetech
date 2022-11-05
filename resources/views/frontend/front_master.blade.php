@@ -18,7 +18,10 @@
 @if(Request::is('login') ) 
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_responsive.css')}}">
+
 @endif
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/product_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/product_responsive.css')}}">
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
@@ -44,7 +47,9 @@
 <script src="{{asset('frontend/js/custom.js')}}"></script>
 @if(Request::is('login') ) 
 <script src="{{asset('frontend/js/contact_custom.js')}}"></script>
+
 @endif
+<script src="{{asset('frontend/js/product_custom.js')}}"></script>
 {{-- smart alert  --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
      <!-- Toaster Javascript cdn -->

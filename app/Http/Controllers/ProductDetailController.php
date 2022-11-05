@@ -3,11 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductDetailController extends Controller
 {
     //viewProductdetail
-    public function viewProductdetail($id,$product_name){
+    public function viewProductdetail($id,$product_name){       
 
+        $product = DB::table('products')
+        ->join('categories','products.category_id','categories.id' )
+        ->join('subcategories','products.subcategory_id','categories.id' )
+        ->join('brands','products.brand_id','categories.id' )
+
+        ->select('products.*','categories.category_name','subcategories.subcategory_name','brands.brand_name')
+        
+        ->where('products.id' , $id)->first();
+
+
+
+
+$color = $product->product_color;
+$product_color = explode(',', $color);
+
+$size = $product->product_size;
+$product_size = explode(',', $size);		
+
+return view('frontend.product_detail',compact('product','product_color','product_size'));
     }
 }
