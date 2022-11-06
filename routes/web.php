@@ -92,6 +92,8 @@ Route::get('/add-to-cart/{id}', [CartController::class, 'add_To_cart']);
 Route::get('/check', [CartController::class, 'check']);
 // 
 Route::get('/product/details/{id}/{product_name}', [ProductDetailController::class, 'viewProductdetail']);
+// addtoCart
+Route::post('/add-to-cart/{id}', [ProductDetailController::class, 'addtoCartproduct'])->name('addtoCartproduct');
 
 // admin.profile
 
