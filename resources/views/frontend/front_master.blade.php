@@ -24,13 +24,26 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/product_responsive.css')}}">
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/cart_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/cart_responsive.css')}}">
 <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
 <body>
     <div class="super_container">
+      @include('frontend.body.header')
+      <!-- Banner -->
+    
+  
 @yield('content')
+
+@include('frontend.body.newsletter')
+<!-- Footer -->
+
+@include('frontend.body.footer')
+
+<!-- Copyright -->
+@include('frontend.body.copyright')
     </div>
 
 <script src="{{asset('frontend/js/jquery-3.3.1.min.js')}}"></script>
@@ -44,6 +57,8 @@
 <script src="{{asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
 <script src="{{asset('frontend/plugins/slick-1.8.0/slick.js')}}"></script>
 <script src="{{asset('frontend/plugins/easing/easing.js')}}"></script>
+
+<script src="{{asset('frontend/js/cart_custom.js')}}"></script>
 <script src="{{asset('frontend/js/custom.js')}}"></script>
 @if(Request::is('login') ) 
 <script src="{{asset('frontend/js/contact_custom.js')}}"></script>

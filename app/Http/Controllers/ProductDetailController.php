@@ -73,4 +73,8 @@ return view('frontend.product_detail',compact('product','product_color','product
 
         }
     }
+    // showcart
+    public function showcart(){
+        
+    }
 }

@@ -90,6 +90,15 @@ Route::get('/add-to-wishlist/{id}', [WishlistController::class, 'add_To_Wishlist
 Route::get('/add-to-cart/{id}', [CartController::class, 'add_To_cart']);
 // check
 Route::get('/check', [CartController::class, 'check']);
+
+// show.cart
+Route::get('show-cart', [CartController::class, 'showcart'])->name('show.cart');
+// remove cart 
+
+Route::get('remove-cart/{rowId}', [CartController::class, 'removecart'])->name('remove-cart');
+// update.cartitem
+Route::post('update-cart/', [CartController::class, 'updateCart'])->name('update.cartitem');
+
 // 
 Route::get('/product/details/{id}/{product_name}', [ProductDetailController::class, 'viewProductdetail']);
 // addtoCart
@@ -106,6 +115,7 @@ Route::post('update/admin/profile', [MainAdminController::class, 'updateadminPro
 Route::get('admin/password', [MainAdminController::class, 'adminPasswordView'])->name('admin.changepassworde');
 // update.Admin.password
 Route::post('/admin/password/update', [MainAdminController::class, 'updateAdminPassword'])->name('update.Admin.password');
+
 
 
 // Admin ROutes 

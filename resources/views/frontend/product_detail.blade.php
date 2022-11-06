@@ -2,7 +2,7 @@
 	@extends('frontend.front_master')
 	@section('content')
 	<!-- Header -->
-    @include('frontend.body.header')
+
 	<!-- Banner -->
 
 
@@ -60,7 +60,7 @@
 						<div class="col-lg-4">
 							<div class="form-group">
 								<label for="exampleFormControlSelect1">Color</label>
-								<select class="form-control input-lg" id="exampleFormControlSelect1" name="color"> 
+								<select class="form-control " id="exampleFormControlSelect1" name="color"> 
 									@foreach($product_color as $col)
 								
 									<option value="{{$col}}">{{$col}}</option>
@@ -178,13 +178,6 @@
 
 
 
-		@include('frontend.body.newsletter')
-		<!-- Footer -->
-
-		@include('frontend.body.footer')
-
-		<!-- Copyright -->
-		@include('frontend.body.copyright')
 	
 
 @endsection
