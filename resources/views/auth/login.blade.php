@@ -2,7 +2,7 @@
 	@extends('frontend.front_master')
 	@section('content')
 	<!-- Header -->
-    @include('frontend.body.header')
+
 	<!-- Banner -->
 
 
