@@ -99,6 +99,11 @@ Route::get('remove-cart/{rowId}', [CartController::class, 'removecart'])->name('
 // update.cartitem
 Route::post('update-cart/', [CartController::class, 'updateCart'])->name('update.cartitem');
 
+
+Route::get('cart/product/view/{id}', [CartController::class, 'viewproduct']);
+Route::post('insert/intocart', [CartController::class, 'insertintocart'])->name('insert.into.cart');
+
+
 // 
 Route::get('/product/details/{id}/{product_name}', [ProductDetailController::class, 'viewProductdetail']);
 // addtoCart

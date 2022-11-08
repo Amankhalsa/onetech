@@ -140,12 +140,17 @@
                                             </div>
                                             <div class="product_name"><div><a href="{{url('product/details/'.$items->id. '/'.$items->product_name )}}"> {{Str::limit($items->product_name,10,$end='....')}}</a></div></div>
                                             <div class="product_extras">
-                                                <div class="product_color">
+                                                {{-- <div class="product_color">
                                                     <input type="radio" checked name="product_color" style="background:#b19c83">
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
-                                                </div>
-                                                <button class="product_cart_button addtocart" data-iD="{{$items->id}}">Add to Cart</button>
+                                                </div> --}}
+                                                {{-- <button class="product_cart_button addtocart" data-id="{{$items->id}}">Add to Cart</button> --}}
+                   
+                                                <button id="{{ $items->id }}" class="product_cart_button addcart" 
+                                                    data-toggle="modal" data-target="#cartmodal"
+                                                    onclick="productview(this.id)">Add to Cart</button>
+                                                
                                             </div>
                                         </div>
 
