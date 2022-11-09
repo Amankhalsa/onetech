@@ -23,10 +23,11 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/product_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/product_responsive.css')}}">
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/cart_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/cart_responsive.css')}}">
 <link rel="stylesheet" href="sweetalert2.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 </head>
 
 <body>
@@ -64,35 +65,13 @@
 <script src="{{asset('frontend/js/contact_custom.js')}}"></script>
 
 @endif
+@if(Route::is('product_detail') ) 
 <script src="{{asset('frontend/js/product_custom.js')}}"></script>
+@endif
 {{-- smart alert  --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
      <!-- Toaster Javascript cdn -->
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-     
-     
-     <script>
-         @if(Session::has('message'))
-         var type = "{{ Session::get('alert-type','info') }}"
-         switch(type){
-            case 'info':
-            toastr.info(" {{ Session::get('message') }} ");
-            break;
-        
-            case 'success':
-            toastr.success(" {{ Session::get('message') }} ");
-            break;
-        
-            case 'warning':
-            toastr.warning(" {{ Session::get('message') }} ");
-            break;
-        
-            case 'error':
-            toastr.error(" {{ Session::get('message') }} ");
-            break; 
-         }
-         @endif 
-        </script>
+    
 {{-- add to --}}
 
 <script type="text/javascript">
@@ -318,7 +297,31 @@
 <!-- Small modal -->
 
 <!-- Small modal -->
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+     
+     
+<script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch(type){
+       case 'info':
+       toastr.info(" {{ Session::get('message') }} ");
+       break;
+   
+       case 'success':
+       toastr.success(" {{ Session::get('message') }} ");
+       break;
+   
+       case 'warning':
+       toastr.warning(" {{ Session::get('message') }} ");
+       break;
+   
+       case 'error':
+       toastr.error(" {{ Session::get('message') }} ");
+       break; 
+    }
+    @endif 
+   </script>
 </body>
 
 

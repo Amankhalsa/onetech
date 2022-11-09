@@ -102,12 +102,21 @@ Route::post('update-cart/', [CartController::class, 'updateCart'])->name('update
 
 Route::get('cart/product/view/{id}', [CartController::class, 'viewproduct']);
 Route::post('insert/intocart', [CartController::class, 'insertintocart'])->name('insert.into.cart');
-
-
+// user.checkout
+Route::get('user/checkout', [CartController::class, 'userCheckOut'])->name('user.checkout');
+// user.wishlist
+Route::get('user/wishlist', [CartController::class, 'userwishlist'])->name('user.wishlist');
 // 
-Route::get('/product/details/{id}/{product_name}', [ProductDetailController::class, 'viewProductdetail']);
+// coupon.remove
+Route::get('coupon/remove', [CartController::class, 'couponremove'])->name('coupon.remove');
+
+// apply.coupon
+Route::post('/user-apply-coupon', [CartController::class, 'apply_coupon'])->name('apply.coupon');
+
+Route::get('/product/details/{id}/{product_name}', [ProductDetailController::class, 'viewProductdetail'])->name('product_detail');
 // addtoCart
 Route::post('/add-to-cart/{id}', [ProductDetailController::class, 'addtoCartproduct'])->name('addtoCartproduct');
+
 
 // admin.profile
 

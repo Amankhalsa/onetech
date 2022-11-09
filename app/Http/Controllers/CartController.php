@@ -122,11 +122,11 @@ public function insertintocart(Request $request){
             $data['options']['color'] = $request->color;
             $data['options']['size'] = $request->size;
             Cart::add($data);
-            $notification=array(
-                'messege'=>'Product Added Successfully',
-                'alert-type'=>'success'
-                 );
-               return Redirect()->back()->with($notification);  
+            $notification = array(
+                'message' => 'Product Added Successfully',
+                'alert-type' => 'success'
+            );
+            return Redirect()->back()->with($notification);
          }
         else {
             $data['id'] =  $product->id;
@@ -139,12 +139,76 @@ public function insertintocart(Request $request){
             $data['options']['color'] = $request->color;
             $data['options']['size'] = $request->size;
             Cart::add($data);
-            $notification=array(
-                'messege'=>'Product Added Successfully',
-                'alert-type'=>'success'
-                 );
-               return Redirect()->back()->with($notification);
+     
+               $notification = array(
+                'message' => 'Product Added Successfully',
+                'alert-type' => 'success'
+            );
+            return Redirect()->back()->with($notification);
 
         }
 }
+
+        public function userCheckOut(){
+        if(Auth::check()){
+            $showcontent = Cart::content();
+            return view('frontend.checkout',compact('showcontent'));
+        }
+        else{
+            $notification = array(
+                'message' => 'At first Login Your Account',
+                'alert-type' => 'error'
+            );
+            return Redirect()->route('login')->with($notification);
+           
+        }
+}
+
+
+    public function userwishlist(){
+        $userid = Auth::id();
+        $product = DB::table('wishlists')
+        ->join('products', 'wishlists.product_id','products.id' )
+        ->select('products.*' ,'wishlists.user_id')
+        ->where('wishlists.user_id',$userid)
+        ->get();
+        // return response()->json( $product);
+        return view('frontend.wishlist',compact('product'));
+ 
+    }
+    public function apply_coupon(Request $request ){
+            $coupon =  $request->coupon;
+            $check = DB::table('coupons')->where('coupon', $coupon)->first();
+                if( $check ){
+                   Session::put('coupon',[
+                    'name' => $check->coupon,
+                    'discount' => $check->discount,
+                    
+                    'balance' => str_replace(',', '', Cart::subtotal()) - $check->discount 
+                   ]);
+                   $notification = array(
+                    'message' => 'Copon Apply success',
+                    'alert-type' => 'success'
+                );
+                return Redirect()->back()->with($notification);
+                }else 
+                {
+                    $notification = array(
+                        'message' => 'Invalid Copon ',
+                        'alert-type' => 'error'
+                    );
+                    return Redirect()->back()->with($notification);
+
+                }
+        }
+
+
+        public function couponremove(){
+            Session::forget('coupon');
+            $notification = array(
+                'message' => 'Coupon removed ',
+                'alert-type' => 'error'
+            );
+            return Redirect()->back()->with($notification);
+        }
 }
