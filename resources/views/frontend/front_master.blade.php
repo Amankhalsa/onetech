@@ -12,6 +12,15 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/OwlCarousel2-2.2.1/animate.css')}}">
+{{-- blog  --}}
+{{-- blog.post --}}
+@if(Request::is('blog.post') ) 
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_responsive.css')}}">
+@endif
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_single_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_single_responsive.css')}}">
+{{-- blog --}}
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/slick-1.8.0/slick.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/responsive.css')}}">
@@ -57,14 +66,18 @@
 <script src="{{asset('frontend/plugins/greensock/ScrollToPlugin.min.js')}}"></script>
 <script src="{{asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
 <script src="{{asset('frontend/plugins/slick-1.8.0/slick.js')}}"></script>
+<script src="{{asset('frontend/plugins/parallax-js-master/parallax.min.js')}}"></script>
+
 <script src="{{asset('frontend/plugins/easing/easing.js')}}"></script>
+<script src="{{asset('frontend/js/blog_custom.js')}}"></script>
+<script src="{{asset('frontend/js/blog_single_custom.js')}}"></script>
 
 <script src="{{asset('frontend/js/cart_custom.js')}}"></script>
 <script src="{{asset('frontend/js/custom.js')}}"></script>
-@if(Request::is('login') ) 
+{{-- @if(Request::is('login') )  --}}
 <script src="{{asset('frontend/js/contact_custom.js')}}"></script>
 
-@endif
+{{-- @endif --}}
 @if(Route::is('product_detail') ) 
 <script src="{{asset('frontend/js/product_custom.js')}}"></script>
 @endif

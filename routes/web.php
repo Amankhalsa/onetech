@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\MainAdminController;
@@ -117,6 +118,12 @@ Route::get('/product/details/{id}/{product_name}', [ProductDetailController::cla
 // addtoCart
 Route::post('/add-to-cart/{id}', [ProductDetailController::class, 'addtoCartproduct'])->name('addtoCartproduct');
 
+Route::get('/blog/post', [BlogController::class, 'addblogpost'])->name('blog.post');
+// language.english
+Route::get('/language/english', [BlogController::class, 'language_english'])->name('language.english');
+Route::get('/language/hindi', [BlogController::class, 'language_hindi'])->name('language.hindi');
+// continue.reading
+Route::get('/continue/reading/{id}', [BlogController::class, 'continuereading'])->name('continue.reading');
 
 // admin.profile
 

@@ -11,14 +11,18 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('frontend/images/mail.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_menu">
+@php
+    $getlang = Session::get('lang');
+@endphp
 								<ul class="standard_dropdown top_bar_dropdown">
 									<li>
-										<a href="#">English<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="#">Italian</a></li>
-											<li><a href="#">Spanish</a></li>
-											<li><a href="#">Japanese</a></li>
-										</ul>
+										@if(Session::get('lang') == 'hindi')
+										<a href="{{route('language.english')}}">English<i class="fas fa-chevron-down"></i></a>
+										@else
+										<a href="{{route('language.hindi')}}">Hindi<i class="fas fa-chevron-down"></i></a>
+										@endif
+										
+										
 									</li>
 									<li>
 										<a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
@@ -248,7 +252,7 @@
 											<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li>
-									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="{{route('blog.post')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
 								</ul>
 							</div>
