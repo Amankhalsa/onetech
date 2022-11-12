@@ -46,6 +46,8 @@
     </div>
 
 
+
+
 <script src="{{asset('frontend/js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('frontend/styles/bootstrap4/popper.js')}}"></script>
 <script src="{{asset('frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
@@ -57,11 +59,11 @@
 <script src="{{asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
 <script src="{{asset('frontend/plugins/slick-1.8.0/slick.js')}}"></script>
 <script src="{{asset('frontend/plugins/parallax-js-master/parallax.min.js')}}"></script>
-
 <script src="{{asset('frontend/plugins/easing/easing.js')}}"></script>
+<script src="{{asset('frontend/plugins/Isotope/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('frontend/plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
 <script src="{{asset('frontend/js/blog_custom.js')}}"></script>
 <script src="{{asset('frontend/js/blog_single_custom.js')}}"></script>
-
 <script src="{{asset('frontend/js/cart_custom.js')}}"></script>
 <script src="{{asset('frontend/js/custom.js')}}"></script>
 {{-- @if(Request::is('login') )  --}}

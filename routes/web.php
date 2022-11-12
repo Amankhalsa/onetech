@@ -141,6 +141,8 @@ Route::get('/continue/reading/{id}', [BlogController::class, 'continuereading'])
 
 Route::get('/products/{id}', [ProductDetailController::class, 'productsView'])->name('products');
 
+// allcategories
+Route::get('/all-categories/{id}', [ProductDetailController::class, 'all_categories_view'])->name('allcategories');
 
 
 // admin.profile

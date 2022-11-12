@@ -160,7 +160,7 @@
 			$category = DB::table('categories')->get();
 		@endphp
 		{{-- @if(Request::is('login' ,'dashboard') ) d-none  @endif " --}}
-		<nav class="main_nav    @if(Request::is('/') ) @else d-none  @endif">
+		<nav class="main_nav   ">
 			<div class="container ">
 				<div class="row">
 					<div class="col">
@@ -178,7 +178,7 @@
 									<ul class="cat_menu">
 										@foreach($category as $cat)
 										<li class="hassubs">
-												<a href="#">{{$cat->category_name}}<i class="fas fa-chevron-right"></i></a>
+												<a href="{{route('allcategories',$cat->id)}}">{{$cat->category_name}}<i class="fas fa-chevron-right"></i></a>
 											<ul>
 												@php
 												$subcategory = DB::table('subcategories')->where('category_id',$cat->id)->get();

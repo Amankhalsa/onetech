@@ -79,8 +79,24 @@ return view('frontend.product_detail',compact('product','product_color','product
     }
     public function productsView($id){
 
-        $products = DB::table('products')->where('subcategory_id',$id)->paginate(2);
-        return view('frontend.allproducts',compact('products'));
+        $products = DB::table('products')->where('subcategory_id',$id)->paginate(5);
+        $categories = DB::table('categories')->get();
+        $brands = DB::table('products')->where('subcategory_id',$id)->select('brand_id')->groupBy('brand_id')->get();
 
+        return view('frontend.allproducts',compact('products','categories','brands'));
+
+    }
+
+    public function all_categories_view($id){
+        $all_categories = DB::table('products')->where('category_id',$id)->paginate(5);
+
+        $brands = DB::table('products')->where('category_id',$id)->select('brand_id')->groupBy('brand_id')->get();
+
+        $categories = DB::table('categories')->get();
+
+        return view('frontend.allcategories',compact('all_categories','brands','categories'));
+
+
+         
     }
 }

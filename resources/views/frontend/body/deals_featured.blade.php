@@ -171,7 +171,7 @@
                                                 @endphp
                             
                                                 
-                            {{  intval($discount)}}%</li>
+                                                {{  intval($discount)}}%</li>
                                             
                                             @endif
                                         </ul>
