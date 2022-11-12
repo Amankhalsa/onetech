@@ -2,7 +2,10 @@
 	@extends('frontend.front_master')
 	@section('content')
 	<!-- Header -->
-
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_single_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_single_responsive.css')}}">
 @php
     $getlang = Session::get('lang');
 @endphp
@@ -17,9 +20,12 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="single_post_title">         
                     @if(Session::get('lang') == 'hindi')
-                    {{$getnlog->post_title_in}}
+             
+                    {!!html_entity_decode($getnlog->post_title_in)!!}	
+
                     @else
-                    {{$getnlog->post_title_en}}
+                 
+                    {!!html_entity_decode($getnlog->post_title_en)!!}	
 
                     @endif
                 
@@ -29,9 +35,13 @@
                         
                  
                         @if(Session::get('lang') == 'hindi')
-                        {{$getnlog->details_in}}
+                     
+                    {!!html_entity_decode($getnlog->post_title_in)!!}	
+
                         @else
-                        {{$getnlog->details_en}}
+                 
+                    {!!html_entity_decode($getnlog->post_title_en)!!}	
+
     
                         @endif
                         .</p>

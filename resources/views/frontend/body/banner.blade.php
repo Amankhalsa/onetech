@@ -7,7 +7,7 @@
 	
 	
 	<div class="banner">
-		<div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
+		<div class="banner_background" style="background-image:url({{asset('frontend/images/banner_background.jpg')}})"></div>
 		<div class="container fill_height">
 			<div class="row fill_height">
 				<div class="banner_product_image"><img src="{{asset($slider->image_one)}}" alt="" height="450px"></div>

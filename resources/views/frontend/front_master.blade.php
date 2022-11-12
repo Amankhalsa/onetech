@@ -7,36 +7,25 @@
 <meta name="description" content="OneTech shop project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+{{-- new --}}
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/bootstrap4/bootstrap.min.css')}}">
-<link href="{{asset('frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}} ">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/OwlCarousel2-2.2.1/animate.css')}}">
-{{-- blog  --}}
-{{-- blog.post --}}
-@if(Request::is('blog.post') ) 
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_styles.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_responsive.css')}}">
-@endif
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_single_styles.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_single_responsive.css')}}">
-{{-- blog --}}
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/plugins/slick-1.8.0/slick.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/responsive.css')}}">
-@if(Request::is('login') ) 
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_styles.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_responsive.css')}}">
 
-@endif
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/product_styles.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/product_responsive.css')}}">
+<!-- chart -->
+         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+         <link rel="stylesheet" href="sweetalert2.min.css">
+
+     <script src="https://js.stripe.com/v3/"></script>
+{{-- new --}}
 
 
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/cart_styles.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/cart_responsive.css')}}">
-<link rel="stylesheet" href="sweetalert2.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 </head>
 
 <body>
@@ -55,6 +44,7 @@
 <!-- Copyright -->
 @include('frontend.body.copyright')
     </div>
+
 
 <script src="{{asset('frontend/js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('frontend/styles/bootstrap4/popper.js')}}"></script>

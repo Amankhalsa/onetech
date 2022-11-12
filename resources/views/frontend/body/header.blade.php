@@ -11,9 +11,9 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('frontend/images/mail.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_menu">
-@php
-    $getlang = Session::get('lang');
-@endphp
+								@php
+									$getlang = Session::get('lang');
+								@endphp
 								<ul class="standard_dropdown top_bar_dropdown">
 									<li>
 										@if(Session::get('lang') == 'hindi')

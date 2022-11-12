@@ -1,6 +1,8 @@
 
 	@extends('frontend.front_master')
 	@section('content')
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/cart_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/cart_responsive.css')}}">
 	<!-- Header -->
     @php
 $setting = DB::table('settings')->first();
@@ -127,7 +129,7 @@ $vat = $setting->vat;
 						<div class="cart_buttons">
                             <button type="button" class="button cart_button_clear">All Cancel</button>
 
-							<a href="{{route('user.checkout')}}" class="button cart_button_checkout">Checkout</a>
+							<a href="{{route('payment.step')}}" class="button cart_button_checkout">Final Step</a>
 						</div>
 					</div>
 				</div>

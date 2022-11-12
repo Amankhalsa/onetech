@@ -2,7 +2,10 @@
 	@extends('frontend.front_master')
 	@section('content')
 	<!-- Header -->
-
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_styles.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_responsive.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_single_styles.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/blog_single_responsive.css')}}">
 @php
     $getlang = Session::get('lang');
 @endphp

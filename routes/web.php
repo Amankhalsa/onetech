@@ -13,6 +13,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\WishlistController;
 
@@ -111,6 +112,14 @@ Route::get('user/wishlist', [CartController::class, 'userwishlist'])->name('user
 // coupon.remove
 Route::get('coupon/remove', [CartController::class, 'couponremove'])->name('coupon.remove');
 
+
+// Payment 
+Route::get('/payment/steps', [CartController::class, 'paymentpage'])->name('payment.step');
+
+// payment.process
+
+Route::post('/user/payment/process', [PaymentController::class, 'paymentProcess'])->name('payment.process');
+
 // apply.coupon
 Route::post('/user-apply-coupon', [CartController::class, 'apply_coupon'])->name('apply.coupon');
 
@@ -124,6 +133,9 @@ Route::get('/language/english', [BlogController::class, 'language_english'])->na
 Route::get('/language/hindi', [BlogController::class, 'language_hindi'])->name('language.hindi');
 // continue.reading
 Route::get('/continue/reading/{id}', [BlogController::class, 'continuereading'])->name('continue.reading');
+
+
+
 
 // admin.profile
 

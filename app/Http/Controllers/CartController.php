@@ -211,4 +211,10 @@ public function insertintocart(Request $request){
             );
             return Redirect()->back()->with($notification);
         }
+
+
+        public function paymentpage(){
+            $cart = Cart::content();
+            return view('frontend.payment',compact('cart'));
+        }
 }

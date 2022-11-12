@@ -5,7 +5,8 @@
 
 	<!-- Banner -->
 
-
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_styles.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_responsive.css')}}">
 
 	@if (session('status'))
 	<div class="mb-4 font-medium text-sm text-green-600">
