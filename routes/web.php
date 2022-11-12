@@ -127,6 +127,9 @@ Route::get('/product/details/{id}/{product_name}', [ProductDetailController::cla
 // addtoCart
 Route::post('/add-to-cart/{id}', [ProductDetailController::class, 'addtoCartproduct'])->name('addtoCartproduct');
 
+
+
+
 Route::get('/blog/post', [BlogController::class, 'addblogpost'])->name('blog.post');
 // language.english
 Route::get('/language/english', [BlogController::class, 'language_english'])->name('language.english');
@@ -134,6 +137,9 @@ Route::get('/language/hindi', [BlogController::class, 'language_hindi'])->name('
 // continue.reading
 Route::get('/continue/reading/{id}', [BlogController::class, 'continuereading'])->name('continue.reading');
 
+// product detail page 
+
+Route::get('/products/{id}', [ProductDetailController::class, 'productsView'])->name('products');
 
 
 

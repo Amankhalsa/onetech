@@ -77,4 +77,10 @@ return view('frontend.product_detail',compact('product','product_color','product
     public function showcart(){
         
     }
+    public function productsView($id){
+
+        $products = DB::table('products')->where('subcategory_id',$id)->paginate(2);
+        return view('frontend.allproducts',compact('products'));
+
+    }
 }

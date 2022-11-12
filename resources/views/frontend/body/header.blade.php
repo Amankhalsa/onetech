@@ -35,7 +35,7 @@
 								</ul>
 							</div>
 							<div class="top_bar_user">
-								@guest
+							@guest
 								<div>
 									<a href="{{ route('login') }}">
 										<div class="user_icon">
@@ -43,27 +43,23 @@
 										</div> Register/Login
 									</a>
 								</div>
-								@else
+							@else
 									<ul class="standard_dropdown top_bar_dropdown">
-													<li>
-														<a href="">
-															<div class="user_icon">
-																<img src="{{ asset('frontend/images/user.svg')}}" alt="">
-															</div> Profile<i class="fas fa-chevron-down"></i>
-														</a>
-														<ul>
-															<li><a href="{{route('user.wishlist')}}">Wishlist</a></li>
-															<li><a href="{{route('user.checkout')}}">Checkout</a></li>
-															<li><a href="#">Others</a></li>
-															<li><a href="{{route('user.logout')}}">logout</a></li>
-
-
-															
-														</ul>
-													</li>
-													
-												</ul> 
-										 @endguest
+										<li>
+											<a href="">
+												<div class="user_icon">
+													<img src="{{ asset('frontend/images/user.svg')}}" alt="">
+												</div> Profile<i class="fas fa-chevron-down"></i>
+											</a>
+											<ul>
+												<li><a href="{{route('user.wishlist')}}">Wishlist</a></li>
+												<li><a href="{{route('user.checkout')}}">Checkout</a></li>
+												<li><a href="#">Others</a></li>
+												<li><a href="{{route('user.logout')}}">logout</a></li>	
+											</ul>
+										</li>
+									</ul> 
+							 @endguest
 				 
 							</div>
 						</div>
@@ -179,28 +175,23 @@
 									<div class="cat_menu_text">categories</div>
 								</div>
 
-				<ul class="cat_menu">
-					@foreach($category as $cat)
-						<li class="hassubs">
-							<a href="#">{{$cat->category_name}}<i class="fas fa-chevron-right"></i></a>
-				<ul>
-					
-					@php
-					$subcategory = DB::table('subcategories')->where('category_id',$cat->id)->get();
-					@endphp
-				    @foreach($subcategory as $row)
-                    <li class="hassubs">
-                        <a href="#">{{ $row->subcategory_name }}<i class="fas fa-chevron-right"></i></a>
-                         
-                    </li>
-                    @endforeach
-					
-				
-				</ul>
-			</li>
-			@endforeach
-
-				</ul>
+									<ul class="cat_menu">
+										@foreach($category as $cat)
+										<li class="hassubs">
+												<a href="#">{{$cat->category_name}}<i class="fas fa-chevron-right"></i></a>
+											<ul>
+												@php
+												$subcategory = DB::table('subcategories')->where('category_id',$cat->id)->get();
+												@endphp
+												@foreach($subcategory as $row)
+												<li class="hassubs">
+													<a href="{{route('products',$row->id)}}">{{ $row->subcategory_name }}<i class="fas fa-chevron-right"></i></a>
+												</li>
+												@endforeach
+											</ul>
+										</li>
+										@endforeach
+									</ul>
 							</div>
 
 							<!-- Main Nav Menu -->
