@@ -140,7 +140,7 @@
 							<div class="cart">
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
-										<img src="{{asset('frontend/images/cart.png')}}" alt="">
+										<a href="{{ route('show.cart') }}"><img src="{{asset('frontend/images/cart.png')}}" alt=""></a>
 										<div class="cart_count"><span>{{Cart::count() }}</span></div>
 									</div>
 									<div class="cart_content">

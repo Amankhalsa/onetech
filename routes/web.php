@@ -119,6 +119,9 @@ Route::get('/payment/steps', [CartController::class, 'paymentpage'])->name('paym
 // payment.process
 
 Route::post('/user/payment/process', [PaymentController::class, 'paymentProcess'])->name('payment.process');
+// stripe.charge
+
+Route::post('/user/stripe/charge', [PaymentController::class, 'stripecharge'])->name('stripe.charge');
 
 // apply.coupon
 Route::post('/user-apply-coupon', [CartController::class, 'apply_coupon'])->name('apply.coupon');
