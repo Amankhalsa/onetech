@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Category\BrandController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Category\CouponController;
 use App\Http\Controllers\Admin\Category\SubcategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -21,11 +22,6 @@ use App\Http\Controllers\WishlistController;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */ 
 
 // Route::get('/', function () {
@@ -43,10 +39,6 @@ Route::get('/email/verify', function () {
 Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/newsletter', [HomeController::class, 'storenewsletter'])->name('store.newsletter');
-
-
-
-
 
 Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
 	Route::get('/login', [AdminController::class, 'loginForm']);
@@ -69,9 +61,11 @@ Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function 
     
 })->name('dashboard');
 // admin.logout
+
+
+    
+ 
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
-
-
 
 Route::get('/user/logout', [MainUserController::class, 'userLogout'])->name('user.logout');
 // user.profile
@@ -101,21 +95,17 @@ Route::get('remove-cart/{rowId}', [CartController::class, 'removecart'])->name('
 // update.cartitem
 Route::post('update-cart/', [CartController::class, 'updateCart'])->name('update.cartitem');
 
-
 Route::get('cart/product/view/{id}', [CartController::class, 'viewproduct']);
+
 Route::post('insert/intocart', [CartController::class, 'insertintocart'])->name('insert.into.cart');
 // user.checkout
 Route::get('user/checkout', [CartController::class, 'userCheckOut'])->name('user.checkout');
 // user.wishlist
 Route::get('user/wishlist', [CartController::class, 'userwishlist'])->name('user.wishlist');
-// 
 // coupon.remove
 Route::get('coupon/remove', [CartController::class, 'couponremove'])->name('coupon.remove');
-
-
 // Payment 
 Route::get('/payment/steps', [CartController::class, 'paymentpage'])->name('payment.step');
-
 // payment.process
 
 Route::post('/user/payment/process', [PaymentController::class, 'paymentProcess'])->name('payment.process');
@@ -149,7 +139,7 @@ Route::get('/all-categories/{id}', [ProductDetailController::class, 'all_categor
 
 
 // admin.profile
-
+Route::middleware(['auth:admin'])->group(function(){
 Route::get('admin/profile', [MainAdminController::class, 'adminProfile'])->name('admin.profile');
 // edit.admin.profile
 Route::get('edit/admin/profile', [MainAdminController::class, 'editadminProfile'])->name('edit.admin.profile');
@@ -291,6 +281,19 @@ Route::group(['prefix'=>'admin/blog'],function(){
     Route::get('delete-blog-post/{id}', [PostController::class, 'deleteBlogpost'])->name('delete.blogpost');
     // update.blog_post
     Route::post('update-blog-post/{id}', [PostController::class, 'updateBlogpost'])->name('update.blog_post');
+
+
+    
+});
+// 
+Route::group(['prefix'=>'admin'],function(){
+    
+    Route::get('pading/order/', [OrderController::class, 'NewOrder'])->name('admin.neworder');
+    Route::get('pending/order/view/{id}', [OrderController::class, 'adminViewOrder'])->name('admin.view.order');
+
+    
+
+});
 
 
 });
