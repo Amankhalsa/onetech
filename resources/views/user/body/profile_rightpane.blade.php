@@ -10,6 +10,8 @@
         <li class="list-group-item"> <a href="{{route('user.changepassword')}}">Change Password</a>  </li>
          <li class="list-group-item"> <a href="{{route('edit.profile')}}"> Edit Profile </a></li>
           <li class="list-group-item"><a href=""> Return Order</a> </li> 
+          <li class="list-group-item"><a href="{{route('dashboard')}}">  Dashboard</a> </li> 
+
       </ul>
 
       <div class="card-body">

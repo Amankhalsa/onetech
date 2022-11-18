@@ -2,8 +2,12 @@
 	@extends('frontend.front_master')
 	@section('content')
 	<!-- Header -->
-
+@php
+   $order =  DB::table('orders')->where('user_id', Auth::id())->orderBy('id','DESC')->limit(10)->get();
+@endphp
     
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_styles.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/styles/contact_responsive.css')}}">
 	<!-- Banner -->
     <div class="contact_form">
         <div class="container"> 
@@ -23,24 +27,28 @@
                   </tr>
                 </thead>
                 <tbody>
-               
+               @if(isset( $order))
+               @foreach($order as $row)
                   <tr>
-                    <td scope="col"> </td>
-                    <td scope="col"> </td>
+                    <td scope="col">{{	$row->payment_type}} </td>
+                    <td scope="col">{{	Str::limit($row->payment_id, 15, $end='...')}} </td>
+
+
+                    <td scope="col">{{	$row->paying_amount}} </td>
+                    <td scope="col">  {{	$row->date}}</td>
+                    <td scope="col">  {{	$row->status}}</td>
+                    <td scope="col"> {{	$row->status_code}} </td>
+
+
                  
       
-                     <td scope="col">
-      
-             
-      
-                      </td>
-      
-                    <td scope="col"> </td>
                     <td scope="col">
                    <a href="" class="btn btn-sm btn-info"> View</a>
                      </td>
                   </tr>
-                 
+
+                 @endforeach
+                 @endif
       
                 </tbody>
                 

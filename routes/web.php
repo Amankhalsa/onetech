@@ -290,6 +290,17 @@ Route::group(['prefix'=>'admin'],function(){
     
     Route::get('pading/order/', [OrderController::class, 'NewOrder'])->name('admin.neworder');
     Route::get('pending/order/view/{id}', [OrderController::class, 'adminViewOrder'])->name('admin.view.order');
+    Route::get('payment/accept/{id}', [OrderController::class, 'adminpaymentaccept'])->name('admin.payment.accept');
+    Route::get('payment/cancel/{id}', [OrderController::class, 'adminpaymentcancel'])->name('admin.payment.cancel');
+    Route::get('accept/payment', [OrderController::class, 'AcceptPayment'])->name('admin.accept.payment');
+
+    Route::get('cancel/order', [OrderController::class, 'CancelOrder'])->name('admin.CancelOrder');
+    Route::get('Process/Payment', [OrderController::class, 'ProcessPayment'])->name('admin.ProcessPayment');
+    Route::get('Success/Payment', [OrderController::class, 'SuccessPayment'])->name('admin.SuccessPayment');
+    Route::get('delevery/process/{id}', [OrderController::class, 'admindeleveryprocess'])->name('admin.delevery.process');
+
+    Route::get('delevery/done/{id}', [OrderController::class, 'admindeleverydone'])->name('admin.delevery.done');
+
 
     
 

@@ -74,6 +74,10 @@
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('admin.neworder')}}" class="nav-link">New Ordder</a></li>
+          <li class="nav-item"><a href="{{ route('admin.accept.payment') }}" class="nav-link">Accept Payment </a></li>
+          <li class="nav-item"><a href="{{ route('admin.CancelOrder') }}" class="nav-link">Cancel Order </a></li>
+         <li class="nav-item"><a href="{{ route('admin.ProcessPayment') }}" class="nav-link">Process Delivery </a></li>
+         <li class="nav-item"><a href="{{ route('admin.SuccessPayment') }}" class="nav-link">Delivery Success </a></li>
         </ul>
 
         {{-- blog  --}}
