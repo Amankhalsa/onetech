@@ -23,11 +23,11 @@ class ProductDetailController extends Controller
 
 
 
-$color = $product->product_color;
-$product_color = explode(',', $color) ?? 'red';
+            $color = $product->product_color;
+            $product_color = explode(',', $color) ?? 'red';
 
-$size = $product->product_size;
-$product_size = explode(',', $size)  ?? '5';		
+            $size = $product->product_size;
+            $product_size = explode(',', $size)  ?? '5';		
                 //   return response()->json($product);  
 
 return view('frontend.product_detail',compact('product','product_color','product_size'));

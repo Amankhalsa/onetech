@@ -38,6 +38,8 @@ Route::get('/email/verify', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::post('order/tracking/', [HomeController::class, 'ordertracking'])->name('order.tracking');
+
 Route::post('/newsletter', [HomeController::class, 'storenewsletter'])->name('store.newsletter');
 
 Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
@@ -301,7 +303,13 @@ Route::group(['prefix'=>'admin'],function(){
 
     Route::get('delevery/done/{id}', [OrderController::class, 'admindeleverydone'])->name('admin.delevery.done');
 
+    Route::get('seo/', [OrderController::class, 'adminSeo'])->name('admin.seo');
 
+    Route::post('seo/update/{id}', [OrderController::class, 'adminSeoUpdate'])->name('admin.seo.update');
+
+
+
+    
     
 
 });

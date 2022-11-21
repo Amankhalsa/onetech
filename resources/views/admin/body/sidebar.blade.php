@@ -105,6 +105,8 @@
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="table-basic.html" class="nav-link">Others</a></li>
+          <li class="nav-item"><a href="{{route('admin.seo')}}" class="nav-link">Seo Setting</a></li>
+
         </ul>
      
       </div><!-- sl-sideleft-menu -->
