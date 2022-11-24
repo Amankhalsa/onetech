@@ -82,12 +82,12 @@ class OrderController extends Controller
 
 
         public function admindeleveryprocess($id){
-            DB::table('orders')->where('id', $id)->update(['status'=>4]);
+            DB::table('orders')->where('id', $id)->update(['status'=>2]);
             $notification = array(
                 'message' => 'Send To Delivery',
                 'alert-type' => 'success'
             );
-        return redirect()->route('admin.CancelOrder')->with($notification);
+        return redirect()->route('admin.ProcessPayment')->with($notification);
         }
 
         public function admindeleverydone($id){

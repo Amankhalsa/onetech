@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Category\SubcategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
@@ -307,12 +308,30 @@ Route::group(['prefix'=>'admin'],function(){
 
     Route::post('seo/update/{id}', [OrderController::class, 'adminSeoUpdate'])->name('admin.seo.update');
 
+});
+Route::group(['prefix'=>'admin/orders'],function(){
+    
+// ReportController
+Route::get('today/orders/', [ReportController::class, 'adminTodayOrder'])->name('admin.today.orders');
+Route::get('today/delivery/', [ReportController::class, 'adminTodaydelivery'])->name('admin.today.delivery');
+
+Route::get('this/month/', [ReportController::class, 'adminthismonth'])->name('admin.this.month');
+
+Route::get('search/report/', [ReportController::class, 'adminSearchReport'])->name('admin.search.report');
+
+Route::post('search/by-year/', [ReportController::class, 'searchByYearReport'])->name('search.by.year');
 
 
-    
-    
+Route::post('search/by-month/', [ReportController::class, 'searchBymonthReport'])->name('search.by.month');
+Route::post('search/by-date/', [ReportController::class, 'SearchByDate'])->name('search.by.date');
+
+
+
+
+
+
+
+
 
 });
-
-
 });
