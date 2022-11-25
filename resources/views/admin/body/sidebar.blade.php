@@ -53,7 +53,7 @@
         <a href="#" class="sl-menu-link {{ ($prefix == '/admin/newsletter'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
-            <span class="menu-item-label">Others</span>
+            <span class="menu-item-label">Newsletter</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
@@ -108,7 +108,7 @@
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
-            <span class="menu-item-label">Other</span>
+            <span class="menu-item-label">Seo</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
@@ -129,12 +129,68 @@
           <li class="nav-item"><a href="{{route('admin.today.delivery')}}" class="nav-link @if(Route::is('admin.today.delivery') ) active @else '' @endif">Today Delivery</a></li>
           <li class="nav-item"><a href="{{route('admin.this.month')}}" class="nav-link @if(Route::is('admin.this.month') ) active @else '' @endif">This Month</a></li>
           <li class="nav-item"><a href="{{route('admin.search.report')}}" class="nav-link @if(Route::is('admin.search.report') ) active @else '' @endif">Search Report  </a></li>
+        </ul>
 
+        <a href="#" class="sl-menu-link   {{ ($prefix == '/admin/user'  )?'active show-sub' : ''}}">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+            <span class="menu-item-label">User</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('admin_create_users')}}" class="nav-link  ">Create User</a></li>
+          <li class="nav-item"><a href="{{route('admin_all_users')}}" class="nav-link ">All User</a></li>
+          </ul>
 
           
+        <a href="#" class="sl-menu-link ">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+            <span class="menu-item-label">Return Order</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">Return Request</a></li>
+          <li class="nav-item"><a href="{{route('admin.today.delivery')}}" class="nav-link @if(Route::is('admin.today.delivery') ) active @else '' @endif">All Request</a></li>
+          </ul>
+
+          <a href="#" class="sl-menu-link }">
+            <div class="sl-menu-item">
+              <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+              <span class="menu-item-label">Contact Message</span>
+              <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+          </a><!-- sl-menu-link -->
+          <ul class="sl-menu-sub nav flex-column">
+            <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">New Message</a></li>
+            <li class="nav-item"><a href="{{route('admin.today.delivery')}}" class="nav-link @if(Route::is('admin.today.delivery') ) active @else '' @endif">All Message</a></li>
+            </ul>
 
 
-        </ul>
+            <a href="#" class="sl-menu-link ">
+              <div class="sl-menu-item">
+                <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+                <span class="menu-item-label">Prodcut Comment </span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+              </div><!-- menu-item -->
+            </a><!-- sl-menu-link -->
+            <ul class="sl-menu-sub nav flex-column">
+              <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">New Comment</a></li>
+              <li class="nav-item"><a href="{{route('admin.today.delivery')}}" class="nav-link @if(Route::is('admin.today.delivery') ) active @else '' @endif">All Comment</a></li>
+              </ul>
+
+              <a href="#" class="sl-menu-link ">
+                <div class="sl-menu-item">
+                  <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+                  <span class="menu-item-label">Site Settings  </span>
+                  <i class="menu-item-arrow fa fa-angle-down"></i>
+                </div><!-- menu-item -->
+              </a><!-- sl-menu-link -->
+              <ul class="sl-menu-sub nav flex-column">
+                <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">Site Settings  </a></li>
+                </ul>
       </div><!-- sl-sideleft-menu -->
 
       <br>

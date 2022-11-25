@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\UserRoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
@@ -326,11 +327,21 @@ Route::post('search/by-month/', [ReportController::class, 'searchBymonthReport']
 Route::post('search/by-date/', [ReportController::class, 'SearchByDate'])->name('search.by.date');
 
 
+});
+Route::group(['prefix'=>'admin/user'],function(){
+    Route::get('/roles', [UserRoleController::class, 'adminAllUserRole'])->name('admin_all_users');
+    Route::get('/create', [UserRoleController::class, 'admincreateAdmin'])->name('admin_create_users');
+    Route::post('/store', [UserRoleController::class, 'adminUserstore'])->name('store.admin');
 
+    Route::get('/edit/{id}', [UserRoleController::class, 'adminedituser'])->name('admin_edit_users');
+    Route::post('/update/{id}', [UserRoleController::class, 'adminupdateuser'])->name('update.adminrole');
 
+    
+    Route::get('/delete/{id}', [UserRoleController::class, 'admindeleteuser'])->name('admin_delete_users');
 
+    
 
-
+    
 
 
 });
