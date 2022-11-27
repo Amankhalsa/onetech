@@ -143,7 +143,7 @@ Route::get('/all-categories/{id}', [ProductDetailController::class, 'all_categor
 
 
 // admin.profile
-Route::middleware(['auth:admin'])->group(function(){
+Route::middleware(['auth:admin' ])->group(function(){
 Route::get('admin/profile', [MainAdminController::class, 'adminProfile'])->name('admin.profile');
 // edit.admin.profile
 Route::get('edit/admin/profile', [MainAdminController::class, 'editadminProfile'])->name('edit.admin.profile');
@@ -155,7 +155,7 @@ Route::get('admin/password', [MainAdminController::class, 'adminPasswordView'])-
 Route::post('/admin/password/update', [MainAdminController::class, 'updateAdminPassword'])->name('update.Admin.password');
 
 
-
+Route::middleware(['access' ])->group(function(){
 // Admin ROutes 
 Route::group(['prefix'=>'admin/category'],function(){
 
@@ -171,6 +171,8 @@ Route::post('update/{id}', [CategoryController::class, 'adminUpdateCategory'])->
 
 
 });
+
+
 //=========================================  viewSubCategory =========================================
 Route::group(['prefix'=>'admin/Subcategory'],function(){
 
@@ -186,6 +188,7 @@ Route::group(['prefix'=>'admin/Subcategory'],function(){
     
     
     });
+});
 //=========================================  viewSubCategory =========================================
 
 // ================================== Brands Routes & BrandController ================================
@@ -290,6 +293,7 @@ Route::group(['prefix'=>'admin/blog'],function(){
     
 });
 // 
+
 Route::group(['prefix'=>'admin'],function(){
     
     Route::get('pading/order/', [OrderController::class, 'NewOrder'])->name('admin.neworder');
@@ -345,4 +349,6 @@ Route::group(['prefix'=>'admin/user'],function(){
 
 
 });
+
 });
+
