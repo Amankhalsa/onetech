@@ -12,6 +12,7 @@ class HomeController extends Controller
 {
     //
     public function index(){
+       
         return view('frontend.index');
     }
     public function storenewsletter(Request $request){

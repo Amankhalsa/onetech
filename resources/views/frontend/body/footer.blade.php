@@ -1,3 +1,8 @@
+@php
+     $setting = DB::table('sitesettings')->first();
+@endphp
+
+
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -10,18 +15,18 @@
                         </a></div>
                     </div>
                     <div class="footer_title">Got Question? Call Us 24/7</div>
-                    <div class="footer_phone">+38 068 005 3570</div>
+                    <div class="footer_phone">{{isset($setting->phone_one) ? $setting->phone_one : "NA"}}</div>
                     <div class="footer_contact_text">
-                        <p>17 Princess Road, London</p>
+                        <p>{{isset($setting->company_address) ? $setting->company_address : "NA"}}</p>
                         <p>Grester London NW18JR, UK</p>
                     </div>
                     <div class="footer_social">
                         <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google"></i></a></li>
-                            <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            <li><a href="{{isset($setting->facebook) ? $setting->facebook : "#"}}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{isset($setting->twitter) ? $setting->twitter : "#"}}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{isset($setting->youtube) ? $setting->youtube : "#"}}"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="{{isset($setting->youtube) ? $setting->youtube : "#"}}"><i class="fab fa-google"></i></a></li>
+                            <li><a href="{{isset($setting->youtube) ? $setting->youtube : "#"}}"><i class="fab fa-vimeo-v"></i></a></li>
                         </ul>
                     </div>
                 </div>

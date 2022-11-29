@@ -187,7 +187,7 @@
                 </div><!-- menu-item -->
               </a><!-- sl-menu-link -->
               <ul class="sl-menu-sub nav flex-column">
-                <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">Site Settings  </a></li>
+                <li class="nav-item"><a href="{{route('admin.site.setting')}}" class="nav-link @if(Route::is('admin.site.setting') ) active @else '' @endif ">Site Settings  </a></li>
                 </ul>
     
       </div><!-- sl-sideleft-menu -->

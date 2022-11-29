@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserRoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -116,6 +117,13 @@ Route::post('/user/payment/process', [PaymentController::class, 'paymentProcess'
 // stripe.charge
 
 Route::post('/user/stripe/charge', [PaymentController::class, 'stripecharge'])->name('stripe.charge');
+
+// success.orderlist
+Route::get('/user/success/orderlist', [PaymentController::class, 'successOrderlist'])->name('success.orderlist');
+
+// user.return.order
+Route::get('/user/return/order/{id}', [PaymentController::class, 'userReturnOrder'])->name('user.return.order');
+
 
 // apply.coupon
 Route::post('/user-apply-coupon', [CartController::class, 'apply_coupon'])->name('apply.coupon');
@@ -343,12 +351,17 @@ Route::group(['prefix'=>'admin/user'],function(){
     
     Route::get('/delete/{id}', [UserRoleController::class, 'admindeleteuser'])->name('admin_delete_users');
 
-    
-
-    
-
 
 });
 
+// admin.site.setting
+
+Route::group(['prefix'=>'admin/site'],function(){
+    Route::get('/setting', [SettingController::class, 'adminSiteSetting'])->name('admin.site.setting');
+    Route::post('/setting-update/{id}', [SettingController::class, 'adminUpdateSetting'])->name('admin.update.sitesetting');
+
+    
+
+});
 });
 
