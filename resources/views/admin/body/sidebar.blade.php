@@ -40,7 +40,6 @@
 
         </ul>
 
-        @if(Auth::user()->coupon == 1)
         <a href="#" class="sl-menu-link {{ ($prefix == '/admin/coupon'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
@@ -52,11 +51,9 @@
           <li class="nav-item"><a href="{{route('admin.coupon')}}" class="nav-link @if(Route::is('admin.coupon') ) active @else '' @endif">Coupons</a></li>
 
         </ul>
-        @else
-        @endif
-        
 
-        @if(Auth::user()->product == 1)
+
+
         <a href="#" class="sl-menu-link {{ ($prefix == '/admin/product'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -68,10 +65,8 @@
           <li class="nav-item"><a href="{{route('create_Product')}}" class="nav-link @if(Route::is('create_Product') ) active @else '' @endif">Add Product</a></li>
           <li class="nav-item"><a href="{{route('all_Product')}}" class="nav-link @if(Route::is('all_Product') ) active @else '' @endif">All Product</a></li>
         </ul>
-        @else
-        @endif
 
-        @if(Auth::user()->order == 1)
+
         <a href="#" class="sl-menu-link  {{ ($prefix == '/admin'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -86,10 +81,9 @@
          <li class="nav-item"><a href="{{ route('admin.ProcessPayment') }}" class="nav-link @if(Route::is('admin.ProcessPayment') ) active @else '' @endif">Process Delivery </a></li>
          <li class="nav-item"><a href="{{ route('admin.SuccessPayment') }}" class="nav-link  @if(Route::is('admin.SuccessPayment') ) active @else '' @endif">Delivery Success </a></li>
         </ul>
-      @else
-      @endif
 
-      @if(Auth::user()->blog == 1)
+
+
         {{-- blog  --}}
         <a href="#" class="sl-menu-link {{ ($prefix == '/admin/blog'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
@@ -105,10 +99,9 @@
 
         </ul>
 
-        @else
-        @endif
+ 
         {{-- blog end  --}}
-        @if(Auth::user()->other == 1)
+ 
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -122,9 +115,7 @@
           <li class="nav-item"><a href="{{route('admin.seo')}}" class="nav-link @if(Route::is('admin.seo') ) active @else '' @endif">Seo Setting</a></li>
 
         </ul>
-        @else
-        @endif
-        @if(Auth::user()->report == 1)
+    
         <a href="#" class="sl-menu-link {{ ($prefix == '/admin/orders'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -138,9 +129,7 @@
           <li class="nav-item"><a href="{{route('admin.this.month')}}" class="nav-link @if(Route::is('admin.this.month') ) active @else '' @endif">This Month</a></li>
           <li class="nav-item"><a href="{{route('admin.search.report')}}" class="nav-link @if(Route::is('admin.search.report') ) active @else '' @endif">Search Report  </a></li>
         </ul>
-      @else
-      @endif
-      @if(Auth::user()->role == 1)
+   
         <a href="#" class="sl-menu-link   {{ ($prefix == '/admin/user'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -153,9 +142,7 @@
           <li class="nav-item"><a href="{{route('admin_all_users')}}" class="nav-link ">All User</a></li>
           </ul>
 
-          @else
-          @endif
-          @if(Auth::user()->return == 1)
+        
         <a href="#" class="sl-menu-link ">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -167,9 +154,7 @@
           <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">Return Request</a></li>
           <li class="nav-item"><a href="{{route('admin.today.delivery')}}" class="nav-link @if(Route::is('admin.today.delivery') ) active @else '' @endif">All Request</a></li>
           </ul>
-          @else
-          @endif
-          @if(Auth::user()->contact == 1)
+ 
           <a href="#" class="sl-menu-link }">
             <div class="sl-menu-item">
               <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -181,9 +166,7 @@
             <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">New Message</a></li>
             <li class="nav-item"><a href="{{route('admin.today.delivery')}}" class="nav-link @if(Route::is('admin.today.delivery') ) active @else '' @endif">All Message</a></li>
             </ul>
-          @else
-          @endif
-          @if(Auth::user()->comment == 1)
+
             <a href="#" class="sl-menu-link ">
               <div class="sl-menu-item">
                 <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -195,9 +178,7 @@
               <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">New Comment</a></li>
               <li class="nav-item"><a href="{{route('admin.today.delivery')}}" class="nav-link @if(Route::is('admin.today.delivery') ) active @else '' @endif">All Comment</a></li>
               </ul>
-              @else
-              @endif
-              @if(Auth::user()->setting == 1)
+   
               <a href="#" class="sl-menu-link ">
                 <div class="sl-menu-item">
                   <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -208,8 +189,7 @@
               <ul class="sl-menu-sub nav flex-column">
                 <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">Site Settings  </a></li>
                 </ul>
-                @else
-                @endif
+    
       </div><!-- sl-sideleft-menu -->
 
       <br>
