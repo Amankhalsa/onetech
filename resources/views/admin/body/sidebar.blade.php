@@ -24,7 +24,7 @@
             <span class="menu-item-label">Website</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        @if(Auth::user()->category == 1)
+
         <a href="#" class="sl-menu-link  {{ ($prefix ==  '/admin/category' || $prefix == '/admin/brands' || $prefix =='/admin/Subcategory' )?'active show-sub' : ''}}  ">
           <div class="sl-menu-item">
             <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
@@ -39,8 +39,7 @@
           <li class="nav-item"><a href="{{route('admin.viewbrands')}}" class="nav-link @if(Route::is('admin.viewbrands') ) active @else '' @endif">View Brand</a></li>
 
         </ul>
-        @else
-        @endif
+
         @if(Auth::user()->coupon == 1)
         <a href="#" class="sl-menu-link {{ ($prefix == '/admin/coupon'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
