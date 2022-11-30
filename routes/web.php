@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\ReturnController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserRoleController;
 use Illuminate\Support\Facades\Route;
@@ -359,6 +360,15 @@ Route::group(['prefix'=>'admin/user'],function(){
 Route::group(['prefix'=>'admin/site'],function(){
     Route::get('/setting', [SettingController::class, 'adminSiteSetting'])->name('admin.site.setting');
     Route::post('/setting-update/{id}', [SettingController::class, 'adminUpdateSetting'])->name('admin.update.sitesetting');
+
+    
+
+});
+
+
+Route::group(['prefix'=>'admin/return'],function(){
+    Route::get('/order', [ReturnController::class, 'adminReturnOrder'])->name('admin.return.order');
+    Route::get('/return-order/{id}', [ReturnController::class, 'adminUpdateSetting'])->name('admin.approve.return');
 
     
 
