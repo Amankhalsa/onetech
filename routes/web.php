@@ -348,10 +348,10 @@ Route::group(['prefix'=>'admin/user'],function(){
 
     Route::get('/edit/{id}', [UserRoleController::class, 'adminedituser'])->name('admin_edit_users');
     Route::post('/update/{id}', [UserRoleController::class, 'adminupdateuser'])->name('update.adminrole');
-
     
     Route::get('/delete/{id}', [UserRoleController::class, 'admindeleteuser'])->name('admin_delete_users');
 
+    Route::get('/product/stock', [UserRoleController::class, 'ProductStock'])->name('admin.product.stock');
 
 });
 

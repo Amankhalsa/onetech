@@ -82,4 +82,14 @@ class UserRoleController extends Controller
         );
       return Redirect()->route('admin_all_users')->with($notification);
     }
+    public function ProductStock(){
+        $products = DB::table('products')
+        ->join('categories','products.category_id', 'categories.id')
+        ->join('brands','products.brand_id', 'brands.id')
+        ->select('products.*','categories.category_name','brands.brand_name')
+        ->latest('created_at')
+        ->get();
+        
+        return view('admin.stock.stock',compact('products'));
+    }
 }

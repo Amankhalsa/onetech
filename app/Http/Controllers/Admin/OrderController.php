@@ -91,6 +91,12 @@ class OrderController extends Controller
         }
 
         public function admindeleverydone($id){
+            $product = DB::table('order_details')->where('order_id',$id)->get();
+            foreach ($product as $row) {
+             DB::table('products')
+                    ->where('id',$row->product_id)
+                    ->update(['product_quantity' => DB::raw('product_quantity-'.$row->quantity)]);
+            }
             DB::table('orders')->where('id', $id)->update(['status'=>3]);
             $notification = array(
                 'message' => 'Product Delivery Done',
