@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
@@ -114,6 +115,10 @@ Route::get('coupon/remove', [CartController::class, 'couponremove'])->name('coup
 Route::get('/payment/steps', [CartController::class, 'paymentpage'])->name('payment.step');
 // payment.process
 
+// product/search
+Route::post('/product/search', [CartController::class, 'prodcut_search'])->name('product.search');
+
+
 Route::post('/user/payment/process', [PaymentController::class, 'paymentProcess'])->name('payment.process');
 // stripe.charge
 
@@ -149,6 +154,13 @@ Route::get('/products/{id}', [ProductDetailController::class, 'productsView'])->
 
 // allcategories
 Route::get('/all-categories/{id}', [ProductDetailController::class, 'all_categories_view'])->name('allcategories');
+
+
+
+Route::get('/contact/page', [ContactController::class, 'contact_page'])->name('contact.page');
+Route::post('/contact/store', [ContactController::class, 'store_contact_msg'])->name('contact.form');
+
+
 
 
 // admin.profile
@@ -341,7 +353,7 @@ Route::post('search/by-date/', [ReportController::class, 'SearchByDate'])->name(
 
 
 });
-Route::group(['prefix'=>'admin/user'],function(){
+Route::group(['prefix'=>'admin/roles'],function(){
     Route::get('/roles', [UserRoleController::class, 'adminAllUserRole'])->name('admin_all_users');
     Route::get('/create', [UserRoleController::class, 'admincreateAdmin'])->name('admin_create_users');
     Route::post('/store', [UserRoleController::class, 'adminUserstore'])->name('store.admin');
@@ -351,10 +363,10 @@ Route::group(['prefix'=>'admin/user'],function(){
     
     Route::get('/delete/{id}', [UserRoleController::class, 'admindeleteuser'])->name('admin_delete_users');
 
-    Route::get('/product/stock', [UserRoleController::class, 'ProductStock'])->name('admin.product.stock');
-
 });
-
+Route::group(['prefix'=>'admin/user'],function(){
+    Route::get('/product/stock', [UserRoleController::class, 'ProductStock'])->name('admin.product.stock');
+});
 // admin.site.setting
 
 Route::group(['prefix'=>'admin/site'],function(){
@@ -371,6 +383,11 @@ Route::group(['prefix'=>'admin/return'],function(){
     Route::get('/return-order/{id}', [ReturnController::class, 'adminUpdateSetting'])->name('admin.approve.return');
 
     
+
+});
+Route::group(['prefix'=>'admin/messages'],function(){
+
+Route::get('/all/view', [ContactController::class, 'all_contact_msg'])->name('contact.messages');
 
 });
 });

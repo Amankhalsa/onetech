@@ -156,13 +156,7 @@
 		<!-- Newsletter -->
 
 
-		@include('frontend.body.newsletter')
-		<!-- Footer -->
-
-		@include('frontend.body.footer')
-
-		<!-- Copyright -->
-		@include('frontend.body.copyright')
+	
 	
 
 @endsection

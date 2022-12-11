@@ -217,4 +217,14 @@ public function insertintocart(Request $request){
             $cart = Cart::content();
             return view('frontend.payment',compact('cart'));
         }
+
+        public function prodcut_search(Request $request){
+        $items = $request->search ;
+
+     $products =  DB::table('products')
+        ->where('product_name','LIKE',"%$items%")
+        ->paginate(20);
+        return view('frontend.search',compact('products'));
+
+        }
 }

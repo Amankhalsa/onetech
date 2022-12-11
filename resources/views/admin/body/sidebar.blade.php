@@ -130,7 +130,7 @@
           <li class="nav-item"><a href="{{route('admin.search.report')}}" class="nav-link @if(Route::is('admin.search.report') ) active @else '' @endif">Search Report  </a></li>
         </ul>
    
-        <a href="#" class="sl-menu-link   {{ ($prefix == '/admin/user'  )?'active show-sub' : ''}}">
+        <a href="#" class="sl-menu-link   {{ ($prefix == '/admin/roles'  )?'active show-sub' : ''}}">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
             <span class="menu-item-label">User Role</span>
@@ -155,23 +155,20 @@
           <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">Return Request</a></li>
           </ul>
  
-@if(Auth::user()->stock == 1)
-<a href="#" class="sl-menu-link">
- <div class="sl-menu-item">
-   <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
-   <span class="menu-item-label">Product Stocks</span>
-   <i class="menu-item-arrow fa fa-angle-down"></i>
- </div><!-- menu-item -->
-</a><!-- sl-menu-link -->
-<ul class="sl-menu-sub nav flex-column">
- <li class="nav-item"><a href="{{ route('admin.product.stock') }}" class="nav-link">Stock</a></li>
-  
-  
-</ul>
-
-@else
-@endif
-          <a href="#" class="sl-menu-link }">
+        @if(Auth::user()->stock == 1)
+          <a href="#" class="sl-menu-link {{ ($prefix == '/admin/user'  )?'active show-sub' : ''}}">
+            <div class="sl-menu-item">
+              <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+                <span class="menu-item-label">Product Stocks</span>
+              <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+          </a><!-- sl-menu-link -->
+          <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{ route('admin.product.stock') }}" class="nav-link">Stock</a></li>
+          </ul>
+        @else
+        @endif
+          <a href="#" class="sl-menu-link  {{ ($prefix == '/admin/messages'  )?'active show-sub' : ''}}">
             <div class="sl-menu-item">
               <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
               <span class="menu-item-label">Contact Message</span>
@@ -179,9 +176,8 @@
             </div><!-- menu-item -->
           </a><!-- sl-menu-link -->
           <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{route('admin.today.orders')}}" class="nav-link @if(Route::is('admin.today.orders') ) active @else '' @endif ">New Message</a></li>
-            <li class="nav-item"><a href="{{route('admin.today.delivery')}}" class="nav-link @if(Route::is('admin.today.delivery') ) active @else '' @endif">All Message</a></li>
-            </ul>
+            <li class="nav-item"><a href="{{route('contact.messages')}}" class="nav-link @if(Route::is('contact.messages') ) active @else '' @endif">All Message</a></li>
+          </ul>
 
             <a href="#" class="sl-menu-link ">
               <div class="sl-menu-item">

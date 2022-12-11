@@ -114,8 +114,9 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+									<form method="post" action="{{ route('product.search') }}" class="header_search_form clearfix">
+										@csrf
+										<input type="search"  required="required" name="search" class="header_search_input" placeholder="Search for products...">
 										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
@@ -265,7 +266,7 @@
 										</ul>
 									</li>
 									<li><a href="{{route('blog.post')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
-									<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="{{route('contact.page')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
 								</ul>
 							</div>
 
