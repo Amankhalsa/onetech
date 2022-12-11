@@ -21,6 +21,7 @@ use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\WishlistController;
 
 /*
@@ -35,6 +36,8 @@ use App\Http\Controllers\WishlistController;
 
 // HomeController
 
+Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle']);
+Route::get('callback/google', [SocialiteController::class, 'handleCallback']);
 
 
 Route::get('/email/verify', function () {
