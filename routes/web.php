@@ -39,7 +39,6 @@ use App\Http\Controllers\WishlistController;
 Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle']);
 Route::get('callback/google', [SocialiteController::class, 'handleCallback']);
 
-
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice'); 
@@ -49,6 +48,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::post('order/tracking/', [HomeController::class, 'ordertracking'])->name('order.tracking');
 
 Route::post('/newsletter', [HomeController::class, 'storenewsletter'])->name('store.newsletter');
+
 
 Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
 	Route::get('/login', [AdminController::class, 'loginForm']);
@@ -254,7 +254,7 @@ Route::group(['prefix'=>'admin/coupon'],function(){
 
     // deletenewsletter
     Route::get('delete/{id}', [CouponController::class, 'adminDeletenewsletter'])->name('deletenewsletter');
-
+    Route::DELETE('/alldelete', [CouponController::class, 'allDelete'])->name('all.delete');
 });
 
 // ========================= Product All ROutes =================================

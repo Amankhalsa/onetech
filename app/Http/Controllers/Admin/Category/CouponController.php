@@ -75,4 +75,13 @@ class CouponController extends Controller
          return redirect()->back()->with($notification); 
 
     }
+
+    public function allDelete(Request $request ){
+        $ids = $request->get('ids');
+        // dd($ids);
+        foreach($ids as $val){
+            DB::table('newslaters')->where('id', $val)->delete();
+        }
+        return redirect()->back()->with('success' ,'Data deleted success');
+}
 }

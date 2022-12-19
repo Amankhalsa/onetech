@@ -17,31 +17,27 @@
 
 
             <div class="table-wrapper">
+              <form action="{{ route('all.delete') }}"  method="post"  >
+                <button class="btn btn-success" type="submit" >All delete</button>
+            @csrf
+            @method('DELETE')
               <table id="datatable1" class="table display responsive nowrap">
                 <thead>
                   <tr>
-                    <th class="wd-15p">ID</th>
+                  <th class="wd-15p">ID</th>
                   <th class="wd-15p">Email</th>
                   <th class="wd-15p">Subscribiing Time</th>
-
-                    <th class="wd-20p">Action</th>
-
+                  <th class="wd-20p">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   @if (isset($viewNewsletter))
                   @foreach ($viewNewsletter as $key => $row )
                   <tr>
-                    <td> <input type="checkbox">{{$key+1}}</td>
-
+                    <td><input type="checkbox" name="ids[]" value="{{$row->id}}" class='check_del'> {{$key+1}}</td>
                     <td>{{$row->email	}}</td>
                     <td>{{ \Carbon\Carbon::parse($row->created_at)->diffForhumans()  }}</td>
-
-                    <td> 
-
-                        <a href="{{route('deletenewsletter',$row->id)}}" class="btn btn-sm btn-danger " id="delete"> Delete </a>
-
-                    </td>
+                    <td> <a href="{{route('deletenewsletter',$row->id)}}" class="btn btn-sm btn-danger " id="delete"> Delete </a></td>
                   </tr>
                   @endforeach
                   @else
@@ -52,6 +48,7 @@
 
                 </tbody>
               </table>
+            </form>
             </div><!-- table-wrapper -->
           </div><!-- card -->
   
