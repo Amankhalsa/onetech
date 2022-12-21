@@ -32,6 +32,6 @@ return [
     'google' => [
         'client_id' => '318454822539-s6ei31rvj6k0kren3j4curtte9ic9815.apps.googleusercontent.com',
         'client_secret' => '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',
-        'redirect' => 'http://127.0.0.1:8000/callback/google',
+        'redirect' => 'https://onetech.amankhalsa.in/callback/google',
       ], 
 ];
