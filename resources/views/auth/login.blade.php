@@ -110,8 +110,7 @@
 
 	<!-- Footer -->
 
-    @include('frontend.body.footer')
-
+   
 	<!-- Copyright -->
 
 	<div class="copyright">

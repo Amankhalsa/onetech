@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Mail\invoiceMail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
@@ -77,6 +80,8 @@ class PaymentController extends Controller
 
 
            /// Insert Shipping Table 
+           Mail::to( $email)->send(new invoiceMail($data));
+
 
     $shipping = array();
     $shipping['order_id'] = $order_id;
