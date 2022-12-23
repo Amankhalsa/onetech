@@ -81,20 +81,23 @@ return view('frontend.product_detail',compact('product','product_color','product
 
         $products = DB::table('products')->where('subcategory_id',$id)->paginate(5);
         $categories = DB::table('categories')->get();
+        $subcategoriesname = DB::table('subcategories')->where('id', $id)->get();
+
         $brands = DB::table('products')->where('subcategory_id',$id)->select('brand_id')->groupBy('brand_id')->get();
 
-        return view('frontend.allproducts',compact('products','categories','brands'));
+        return view('frontend.allproducts',compact('products','categories','brands','subcategoriesname'));
 
     }
 
     public function all_categories_view($id){
         $all_categories = DB::table('products')->where('category_id',$id)->paginate(5);
+        $categoriesname = DB::table('categories')->where('id', $id)->get();
 
         $brands = DB::table('products')->where('category_id',$id)->select('brand_id')->groupBy('brand_id')->get();
 
         $categories = DB::table('categories')->get();
 
-        return view('frontend.allcategories',compact('all_categories','brands','categories'));
+        return view('frontend.allcategories',compact('all_categories','brands','categories','categoriesname'));
 
 
          

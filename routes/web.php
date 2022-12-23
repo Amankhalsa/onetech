@@ -127,6 +127,9 @@ Route::post('/user/payment/process', [PaymentController::class, 'paymentProcess'
 
 Route::post('/user/stripe/charge', [PaymentController::class, 'stripecharge'])->name('stripe.charge');
 
+Route::post('/oncash/charge', [PaymentController::class, 'oncashcharge'])->name('oncash.charge');
+
+
 // success.orderlist
 Route::get('/user/success/orderlist', [PaymentController::class, 'successOrderlist'])->name('success.orderlist');
 

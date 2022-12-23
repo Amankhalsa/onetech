@@ -75,7 +75,7 @@
 											<ul>
 												<li><a href="{{route('user.wishlist')}}">Wishlist</a></li>
 												<li><a href="{{route('user.checkout')}}">Checkout</a></li>
-												<li><a href="#">Others</a></li>
+												<li><a href="{{route('dashboard')}}">dashboard</a></li>
 												<li><a href="{{route('user.logout')}}">logout</a></li>	
 											</ul>
 										</li>
