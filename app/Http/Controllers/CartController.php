@@ -126,7 +126,7 @@ public function insertintocart(Request $request){
                 'message' => 'Product Added Successfully',
                 'alert-type' => 'success'
             );
-            return Redirect()->back()->with($notification);
+            return Redirect()->route('show.cart')->with($notification);
          }
         else {
             $data['id'] =  $product->id;
@@ -144,7 +144,8 @@ public function insertintocart(Request $request){
                 'message' => 'Product Added Successfully',
                 'alert-type' => 'success'
             );
-            return Redirect()->back()->with($notification);
+            return Redirect()->route('show.cart')->with($notification);
+
 
         }
 }
