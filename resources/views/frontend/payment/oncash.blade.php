@@ -172,7 +172,8 @@ $cart = Cart::Content();
                             </div>
                             <input type="hidden" name="shipping" value="{{ $charge }} ">
                             <input type="hidden" name="vat" value="{{ $vat }} ">
-                            <input type="hidden" name="total" value="{{ Cart::Subtotal() + $charge + $vat }} ">
+                            <input type="hidden" name="total" value="{{ str_replace(',', '', Cart::Subtotal()) + $charge + $vat }} ">
+							{{-- 'balance' => str_replace(',', '', Cart::subtotal()) - $check->discount  --}}
 
                             <input type="hidden" name="ship_name" value="{{ $data['name'] }} ">
                             <input type="hidden" name="ship_phone" value="{{ $data['phone'] }} ">
