@@ -150,7 +150,6 @@
 		@include('frontend.body.recently')
 
 		<!-- Brands -->
-<!-- mibew button --><a id="mibew-agent-button" href="/livechat/chat?locale=en" target="_blank" onclick="Mibew.Objects.ChatPopups['63b98efd7823163b'].open();return false;"><img src="/livechat/b?i=mibew&amp;lang=en" border="0" alt="" /> Chat now </a><script type="text/javascript" src="/livechat/js/compiled/chat_popup.js"></script><script type="text/javascript">Mibew.ChatPopup.init({"id":"63b98efd7823163b","url":"\/livechat\/chat?locale=en","preferIFrame":true,"modSecurity":false,"forceSecure":false,"style":"","width":640,"height":480,"resizable":true,"styleLoader":"\/livechat\/chat\/style\/popup"});</script><!-- / mibew button -->
 
 		@include('frontend.body.brands')
 		<!-- Newsletter -->
